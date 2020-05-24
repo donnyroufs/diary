@@ -1,9 +1,8 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../db";
 import Controller from "../controllers/index";
 
 const router = Router();
-const prisma = new PrismaClient();
 
 const controller = new Controller(prisma.user);
 

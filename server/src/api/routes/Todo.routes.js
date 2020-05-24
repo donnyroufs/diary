@@ -1,9 +1,8 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
+import prisma from "../../db";
 import TodoController from "../controllers/Todo.controller";
 
 const router = Router();
-const prisma = new PrismaClient();
 
 const controller = new TodoController(prisma.todo);
 
