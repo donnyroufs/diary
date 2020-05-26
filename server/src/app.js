@@ -1,10 +1,12 @@
 import "dotenv/config";
 import express from "express";
+import cors from "cors";
 import apiRoutes from "./api/routes/index";
 
 const app = express();
 
 (async () => {
+    app.use(cors());
     app.use(express.json());
 
     app.use("/api", apiRoutes);
