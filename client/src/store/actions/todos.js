@@ -1,4 +1,3 @@
-import axios from "axios";
 import { todos as types } from "../constants";
 
 export const ENDPOINT = "/api/todo";
