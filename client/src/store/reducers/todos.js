@@ -16,14 +16,15 @@ export default (state = initialState, action) => {
         case types.SUCCESS_TODOS:
             return {
                 ...state,
-                todos: action.payload.data,
                 loading: false,
+                todos: action.payload.data,
+                error: null,
             };
         case types.FAILED_TODOS:
             return {
                 ...state,
-                todos: [],
                 loading: false,
+                todos: [],
                 error: action.payload,
             };
         default:

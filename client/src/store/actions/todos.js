@@ -1,32 +1,39 @@
 import axios from "axios";
 import { todos as types } from "../constants";
 
-const fetchTodosRequest = () => {
+export const ENDPOINT = "/api/todo";
+
+export const fetchTodosRequest = () => {
     return {
         type: types.FETCH_TODOS,
     };
 };
 
-const fetchTodosSuccess = (payload) => {
+export const fetchTodosSuccess = (payload) => {
     return {
         type: types.SUCCESS_TODOS,
         payload,
     };
 };
 
-const fetchTodosFailed = (payload) => {
+export const fetchTodosFailed = (payload) => {
     return {
         type: types.FAILED_TODOS,
         payload,
     };
 };
 
-const fetchTodos = () => (dispatch) => {
+export const fetchTodos = () => async (dispatch) => {
     dispatch(fetchTodosRequest());
-    axios
-        .get("/api/todo")
+    return fetch(ENDPOINT)
+        .then((res) => res.json())
         .then((data) => dispatch(fetchTodosSuccess(data)))
-        .catch((err) => dispatch(fetchTodosFailed(err.message)));
+        .catch((err) =>
+            dispatch(
+                fetchTodosFailed({
+                    ok: false,
+                    data: err.message,
+                })
+            )
+        );
 };
-
-export { fetchTodos };
