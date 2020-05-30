@@ -2,25 +2,19 @@ import { todos as types } from "../constants";
 
 export const ENDPOINT = "/api/todo";
 
-export const fetchTodosRequest = () => {
-    return {
-        type: types.FETCH_TODOS,
-    };
-};
+export const fetchTodosRequest = () => ({
+    type: types.FETCH_TODOS,
+});
 
-export const fetchTodosSuccess = (payload) => {
-    return {
-        type: types.SUCCESS_TODOS,
-        payload,
-    };
-};
+export const fetchTodosSuccess = (payload) => ({
+    type: types.SUCCESS_TODOS,
+    payload,
+});
 
-export const fetchTodosFailed = (payload) => {
-    return {
-        type: types.FAILED_TODOS,
-        payload,
-    };
-};
+export const fetchTodosFailed = (payload) => ({
+    type: types.FAILED_TODOS,
+    payload,
+});
 
 export const fetchTodos = () => async (dispatch) => {
     dispatch(fetchTodosRequest());

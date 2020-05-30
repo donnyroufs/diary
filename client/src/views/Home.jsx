@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchTodos } from "../store/actions/todos";
+import { Title } from "./styles/home";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>This is the home page.</h1>
+            <Title>Hello World.</Title>
         </div>
     );
 };

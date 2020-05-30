@@ -1,5 +1,5 @@
 import fetchMock from "fetch-mock";
-import { makeMockStore } from "../utils/tests/mockStore";
+import { makeMockStore } from "../__mocks__/mockStore";
 import { todos as types } from "../store/constants";
 import todosReducer from "../store/reducers/todos";
 import * as actions from "../store/actions/todos";
