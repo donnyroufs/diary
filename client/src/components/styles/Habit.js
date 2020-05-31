@@ -8,6 +8,10 @@ export const Habit = styled.div`
     background: ${({ theme, danger }) => (danger ? theme.red : theme.darkBlue)};
     border-radius: 6px;
     margin-top: 3rem;
+
+    @media screen and (min-width: 968px) {
+        width: 31%;
+    }
 `;
 
 Habit.Streak = styled.h1`

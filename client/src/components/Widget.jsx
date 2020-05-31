@@ -2,13 +2,13 @@ import React from "react";
 import * as Styled from "./styles/Widget";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-const Widget = ({ link, title, subTitle, items, href }) => {
+const Widget = ({ link, title, subTitle, items, href, size }) => {
     return (
-        <Styled.Widget>
+        <Styled.Widget size={size}>
             <Styled.Widget.Wrapper>
-                <h1>
+                <Styled.Widget.Title>
                     {title} {subTitle}
-                </h1>
+                </Styled.Widget.Title>
                 <Styled.Widget.Link to={href}>
                     {link} <FaLongArrowAltRight className="ml-2" />
                 </Styled.Widget.Link>

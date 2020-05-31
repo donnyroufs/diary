@@ -17,16 +17,18 @@ const Home = () => {
     return (
         <React.Fragment>
             <Banner />
-
             <Styled.Widgets>
                 <Widget title="Todos" link="view completed" href="/todos" items={todos} />
-                <Widget title="Exercise" link="more" href="/exercise" items={todos} />
+                <Widget title="Exercise" link="more" href="/exercise" items={todos} size="big" />
             </Styled.Widgets>
 
             <Styled.Habbits>
-                <Habit />
-                <Habit />
-                <Habit />
+                <Styled.Title>Habits</Styled.Title>
+                <Styled.Wrapper>
+                    <Habit />
+                    <Habit />
+                    <Habit />
+                </Styled.Wrapper>
             </Styled.Habbits>
         </React.Fragment>
     );

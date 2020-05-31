@@ -18,6 +18,7 @@ export default createGlobalStyle`
 
     #app {
         display: flex;
+        margin: 0 0 4rem 0;
     }
 
     .link-icons {
