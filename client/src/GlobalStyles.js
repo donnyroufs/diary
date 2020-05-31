@@ -13,6 +13,7 @@ export default createGlobalStyle`
     body {
         margin: 0;
         font-family: "Poppins", sans-serif;
+        color: #1C1B1B;
     }
 
     #app {

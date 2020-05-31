@@ -10,6 +10,11 @@ export const Container = styled.section`
         margin-left: ${sidebarWidth + 200}px;
         margin-right: 200px;
     }
+
+    @media screen and (min-width: 2150px) {
+        margin-left: ${sidebarWidth + 500}px;
+        margin-right: 500px;
+    }
 `;
 
 export const Main = styled.main`

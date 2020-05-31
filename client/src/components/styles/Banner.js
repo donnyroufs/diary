@@ -13,6 +13,7 @@ export const Banner = styled.section`
 
     @media screen and (min-width: 968px) {
         max-height: 220px;
+        border-radius: ${({ theme }) => theme.borderRadius};
     }
 `;
 
@@ -33,7 +34,7 @@ Banner.Image = styled.img`
     min-width: 414px;
 
     @media screen and (min-width: 968px) {
-        height: 350%;
+        height: 550px;
         position: absolute;
         top: -250px;
     }
@@ -47,6 +48,7 @@ Banner.Wrapper = styled.div`
     padding-bottom: 2rem;
     flex: 1;
     order: 2;
+    justify-content: center;
 
     @media screen and (min-width: 968px) {
         order: 1;

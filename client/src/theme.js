@@ -6,4 +6,5 @@ export default {
     red: "#D9728F",
     lightRed: "#D9728F",
     activeLink: "#686A85",
+    borderRadius: "14px",
 };

@@ -1,15 +1,15 @@
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
     day: "numeric",
-    timeZone: "UTC",
-    timeZoneName: "short",
+    month: "short",
+    year: "numeric",
 };
 
 function todaysDate(_options = options) {
     const todaysDate = new Date();
-    return todaysDate.toLocaleString("en-US", _options);
+    const today = todaysDate.getDay();
+    return todaysDate.toLocaleString("en-US", _options) + ", " + days[today];
 }
 
 export default todaysDate;
