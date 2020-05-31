@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import GlobalStyles from "../../GlobalStyles";
 
 export const headerHeight = "120px";
 
@@ -11,7 +10,7 @@ export const Header = styled.header`
     margin: 0 2rem;
 
     @media screen and (min-width: 968px) {
-        margin: 0;
+        margin: 1.5rem 0;
     }
 `;
 

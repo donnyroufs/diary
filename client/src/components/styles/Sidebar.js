@@ -33,6 +33,10 @@ export const Header = styled.header`
     justify-content: space-between;
     height: ${headerHeight};
     padding: 0 3rem;
+
+    @media screen and (min-width: 968px) {
+        margin-top: 1.5rem;
+    }
 `;
 
 export const Logo = styled.a`

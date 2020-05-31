@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import GlobalStyles from "../../GlobalStyles";
-
-const { colours, typography } = GlobalStyles;
 
 export const Banner = styled.section`
     display: flex;
