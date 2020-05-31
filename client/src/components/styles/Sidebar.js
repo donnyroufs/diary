@@ -21,10 +21,9 @@ export const Sidebar = styled.aside`
     padding: 0 3rem;
     transition: all 0.3s ease-in;
 
-    @media screen and(min-width: 968px) {
+    @media screen and (min-width: 968px) {
         width: ${sidebarWidth};
         left: 0;
-        transform: translateX(0);
     }
 `;
 
