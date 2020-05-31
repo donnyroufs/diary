@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { headerHeight } from "./Header";
 import global from "../../GlobalStyles";
@@ -41,10 +42,32 @@ export const Logo = styled.a`
     font-size: ${typography.h1["font-size"]};
 `;
 
-export const Navbar = styled.nav``;
+export const Navbar = styled.nav`
+    margin-top: 3rem;
+`;
 
-export const Menu = styled.ul``;
+export const Menu = styled.ul`
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+`;
 
-export const Item = styled.li``;
+export const Item = styled.li`
+    display: flex;
+    align-items: center;
+`;
 
-export const Link = styled.a``;
+export const Link = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    color: ${colours.lightBlue};
+    opacity: 0.8;
+    text-decoration: none;
+    padding: 1rem 0;
+    &.active {
+        opacity: 1;
+        color: ${colours.activeLink};
+    }
+`;
