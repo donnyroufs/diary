@@ -61,7 +61,7 @@ Banner.Title = styled.h2`
 Banner.Paragraph = styled.p`
     line-height: 1.95em;
     color: ${({ theme }) => theme.black};
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 
     @media screen and (min-width: 968px) {
         font-size: 1rem;

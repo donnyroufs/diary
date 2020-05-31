@@ -29,6 +29,10 @@ export default createGlobalStyle`
     .mr-2 {
         margin-right: 2rem;
     }
+    
+    .ml-2 {
+        margin-left: .5rem;
+    }
 
     h1 {
         font-size: 2rem;

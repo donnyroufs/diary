@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import Global from "../../GlobalStyles";
 
-const { colours } = Global;
+export const Widgets = styled.section`
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 2rem;
+`;
 
-export const Title = styled.h1`
-    color: ${colours.blue};
+export const Habbits = styled.section`
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 2rem;
 `;
