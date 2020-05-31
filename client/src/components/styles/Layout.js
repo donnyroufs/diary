@@ -7,7 +7,8 @@ export const Container = styled.section`
     width: 100%;
 
     @media screen and (min-width: 968px) {
-        margin-left: ${sidebarWidth};
+        margin-left: ${sidebarWidth + 200}px;
+        margin-right: 200px;
     }
 `;
 

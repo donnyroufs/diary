@@ -18,7 +18,7 @@ const Sidebar = ({ open, setOpen }) => {
                 <Styled.Navbar>
                     <Styled.Menu>
                         {Routes.map(({ icon, route }) => (
-                            <Styled.Item>
+                            <Styled.Item key={route}>
                                 <Styled.Link exact to={route === "overview" ? "/" : route} onClick={toggleSidebar}>
                                     <span className="mr-2">{icon}</span>
                                     {route}

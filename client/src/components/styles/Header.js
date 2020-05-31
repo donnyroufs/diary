@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import GlobalStyles from "../../GlobalStyles";
 
 export const headerHeight = "120px";
 
@@ -7,10 +8,20 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     height: ${headerHeight};
+    margin: 0 2rem;
+
+    @media screen and (min-width: 968px) {
+        margin: 0;
+    }
 `;
 
 export const Title = styled.h3`
-    font-weight: bold;
+    display: none;
+    @media screen and (min-width: 968px) {
+        display: flex;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
 `;
 
 export const Hamburger = styled.img`
@@ -30,4 +41,5 @@ export const Hamburger = styled.img`
 
 export const Time = styled.div`
     margin-left: auto;
+    letter-spacing: 0.05em;
 `;

@@ -7,23 +7,22 @@ import global from "../../GlobalStyles";
 
 const { colours, typography } = global;
 
-export const sidebarWidth = "400px";
+export const sidebarWidth = 400;
 
 export const Sidebar = styled.aside`
     position: fixed;
     display: flex;
     flex-flow: column nowrap;
-    background: ${colours.darkBlue};
+    background: ${({ theme }) => theme.darkBlue};
     width: 100vw;
     height: 100vh;
     top: 0;
     left: ${(props) => (props.open ? "0px" : "-100vw")};
     z-index: 5;
-    padding: 0 3rem;
     transition: all 0.3s ease-in;
 
     @media screen and (min-width: 968px) {
-        width: ${sidebarWidth};
+        width: ${sidebarWidth}px;
         left: 0;
     }
 `;
@@ -33,13 +32,14 @@ export const Header = styled.header`
     align-items: center;
     justify-content: space-between;
     height: ${headerHeight};
+    padding: 0 3rem;
 `;
 
 export const Logo = styled.a`
     text-decoration: none;
-    color: ${colours.lightBlue};
-    font-weight: ${typography.h1["font-weight"]};
-    font-size: ${typography.h1["font-size"]};
+    color: ${({ theme }) => theme.lightBlue};
+    font-size: 2rem;
+    font-weight: bold;
 `;
 
 export const Navbar = styled.nav`
@@ -62,12 +62,26 @@ export const Item = styled.li`
 export const Link = styled(NavLink)`
     display: flex;
     align-items: center;
-    color: ${colours.lightBlue};
+    color: ${({ theme }) => theme.lightBlue};
     opacity: 0.8;
     text-decoration: none;
-    padding: 1rem 0;
+    padding: 1rem 3rem;
+    width: 100%;
+    transition: 0.2s ease-in-out all;
+    text-transform: capitalize;
+
     &.active {
         opacity: 1;
-        color: ${colours.activeLink};
+        color: #fff;
+        background: ${({ theme }) => theme.activeLink};
+    }
+
+    &:hover {
+        color: #fff;
+        background: ${({ theme }) => theme.activeLink};
+    }
+
+    @media screen and (min-width: 968px) {
+        width: 80%;
     }
 `;
