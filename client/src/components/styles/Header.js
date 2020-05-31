@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
+export const headerHeight = "120px";
+
 export const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
+    height: ${headerHeight};
 `;
 
 export const Title = styled.h3`

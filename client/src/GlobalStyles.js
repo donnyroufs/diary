@@ -8,4 +8,14 @@ export default {
         lightRed: "#D9728F",
         activeLink: "#F2F6FF",
     },
+    typography: {
+        h1: {
+            "font-size": "2rem",
+            "font-weight": "bold",
+        },
+        h2: {
+            "font-size": "1.5rem",
+            "font-weight": "semi-bold",
+        },
+    },
 };

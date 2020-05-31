@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 
     return (
         <div id="app">
-            <Sidebar open={open} />
+            <Sidebar open={open} setOpen={setOpen} />
             <Container>
                 <Header setOpen={setOpen} />
                 <Main>{children}</Main>
