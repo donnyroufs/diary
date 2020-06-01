@@ -53,7 +53,7 @@ export default createGlobalStyle`
         color: ${theme.darkBlue}; 
         margin-left: .5rem;
     }
-    
+
     .todo-icon--danger {
         color: ${theme.red};
     }
