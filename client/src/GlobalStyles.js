@@ -28,6 +28,7 @@ export default createGlobalStyle`
         margin-bottom: -0.2rem;
     }
 
+
     .mr-2 {
         margin-right: 2rem;
     }
@@ -50,5 +51,10 @@ export default createGlobalStyle`
         height: 22px;
         width: 22px;
         color: ${theme.darkBlue}; 
+        margin-left: .5rem;
+    }
+    
+    .todo-icon--danger {
+        color: ${theme.red};
     }
 `;

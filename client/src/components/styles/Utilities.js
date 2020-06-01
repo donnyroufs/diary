@@ -14,4 +14,6 @@ export const Button = styled.button`
     font-weight: ${(props) => (props.primary ? "bold" : "regular")};
     font-size: 0.9rem;
     text-transform: uppercase;
+    width: 100%;
+    border-radius: 7px;
 `;

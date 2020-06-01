@@ -4,6 +4,7 @@ export const Todos = styled.ul`
     list-style: none;
     margin: 0 0 1rem 0;
     padding: 0;
+    width: 100%;
 `;
 
 Todos.Todo = styled.li`
@@ -31,6 +32,8 @@ Todos.Header = styled.header`
 export const Description = styled.div`
     display: flex;
     flex-flow: column nowrap;
+    width: 100%;
+    margin-top: 2rem;
 `;
 
 Description.Icons = styled.aside``;
@@ -42,10 +45,11 @@ Description.Header = styled.header`
     width: 100%;
     padding: 1rem 0;
 `;
+
 Description.Title = styled.h3`
     font-size: 0.95rem;
     font-weight: bold;
-    color: ${({ theme }) => theme.blue};
+    color: ${({ theme }) => theme.darkBlue};
 `;
 
 Description.Body = styled.textarea`

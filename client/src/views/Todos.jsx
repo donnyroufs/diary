@@ -8,10 +8,11 @@ import * as Styled from "../components/styles/Todos";
 import * as Utility from "../components/styles/Utilities";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin4Line } from "react-icons/ri";
+import { Roller } from "react-awesome-spinners";
 
 const Todos = () => {
     const [value, setValues] = useState({});
-    const todos = useSelector((state) => state.todos.todos);
+    const { todos, loading } = useSelector((state) => state.todos);
 
     const handleChange = (e) =>
         setValues({
@@ -28,13 +29,19 @@ const Todos = () => {
                 </Tabs>
             </Header>
 
-            <Container>
-                <Styled.Todos>
-                    {todos.map((todo) => (
-                        <Todo key={todo.id} {...todo} />
-                    ))}
-                </Styled.Todos>
-                <Utility.Button primary>Add Todo</Utility.Button>
+            <Container isLoading={loading}>
+                {loading ? (
+                    <Roller />
+                ) : (
+                    <React.Fragment>
+                        <Styled.Todos>
+                            {todos.map((todo) => (
+                                <Todo key={todo.id} {...todo} />
+                            ))}
+                        </Styled.Todos>
+                        <Utility.Button primary>Add Todo</Utility.Button>
+                    </React.Fragment>
+                )}
             </Container>
 
             <Container>
@@ -43,7 +50,7 @@ const Todos = () => {
                         <Styled.Description.Title>Description</Styled.Description.Title>
                         <Styled.Description.Icons>
                             <FaEdit className="todo-icon" />
-                            <RiDeleteBin4Line className="todo-icon" />
+                            <RiDeleteBin4Line className="todo-icon todo-icon--danger" />
                         </Styled.Description.Icons>
                     </Styled.Description.Header>
                     <Styled.Description.Body placeholder="Enter description" />
