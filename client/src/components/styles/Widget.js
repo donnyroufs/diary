@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Widget = styled.div`
     display: flex;
     flex-flow: column nowrap;
-    margin: 4rem 0rem;
+    margin: 3rem 0rem;
     flex: ${(props) => (props.size === "big" ? 3 : 2)};
 
     @media screen and (min-width: 968px) {

@@ -7,9 +7,11 @@ export const Banner = styled.section`
     padding: 1rem 0;
     width: 100%;
     margin-top: 50px;
+    margin-bottom: 3rem;
 
     @media screen and (min-width: 968px) {
         max-height: 220px;
+        margin-bottom: 0;
         border-radius: ${({ theme }) => theme.borderRadius};
     }
 `;

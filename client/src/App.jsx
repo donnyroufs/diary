@@ -8,6 +8,7 @@ const App = () => {
         <Layout>
             <Switch>
                 <Route exact path="/" component={View.Home} />
+                <Route path="/todos" component={View.Todos} />
             </Switch>
         </Layout>
     );

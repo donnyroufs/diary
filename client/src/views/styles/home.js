@@ -15,7 +15,7 @@ export const Widgets = styled.div`
 export const Habbits = styled.div`
     display: flex;
     flex-flow: column wrap;
-    margin: 0 2rem;
+    margin: 3rem 2rem;
 
     @media screen and (min-width: 968px) {
         margin: 1rem 0;
