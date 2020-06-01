@@ -11,4 +11,5 @@ export default {
     borderRadius: "14px",
     gray: "#D5D5D5",
     darkGray: "#878686",
+    white: "#fff",
 };

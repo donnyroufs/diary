@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
+import theme from "./theme";
 
 export default createGlobalStyle`
     ${normalize}
@@ -13,7 +14,7 @@ export default createGlobalStyle`
     body {
         margin: 0;
         font-family: "Poppins", sans-serif;
-        color: #1C1B1B;
+        color: ${theme.black};
     }
 
     #app {
@@ -43,5 +44,11 @@ export default createGlobalStyle`
     h2 {
         font-size: 1.5rem;
         font-weight: semi-bold;
+    }
+
+    .todo-icon {
+        height: 22px;
+        width: 22px;
+        color: ${theme.darkBlue}; 
     }
 `;
