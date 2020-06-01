@@ -12,4 +12,5 @@ export default {
     gray: "#D5D5D5",
     darkGray: "#878686",
     white: "#fff",
+    todoColour: "#A9ACCE",
 };
