@@ -12,6 +12,7 @@ import { Roller } from "react-awesome-spinners";
 
 const Todos = () => {
     const [value, setValues] = useState({});
+    const [current, setCurrent] = useState("Today");
     const { todos, loading } = useSelector((state) => state.todos);
 
     const handleChange = (e) =>
@@ -24,8 +25,8 @@ const Todos = () => {
         <Wrapper>
             <Header>
                 <Tabs>
-                    <Tab title="Today" />
-                    <Tab title="Tomorrow" />
+                    <Tab title="Today" current={current} setCurrent={setCurrent} />
+                    <Tab title="Tomorrow" current={current} setCurrent={setCurrent} />
                 </Tabs>
             </Header>
 

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import Tab from "./Tab";
 import * as Styled from "./styles/Tabs";
 
 const Tabs = ({ children }) => {
-    const [current, setCurrent] = useState(0);
-
     return <Styled.Tabs>{children}</Styled.Tabs>;
 };
 

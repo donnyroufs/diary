@@ -1,7 +1,15 @@
 import React from "react";
 import * as Styled from "./styles/Tabs";
 
-const Tab = ({ title, isActive }) => {
-    return <Styled.Tabs.Tab>{title}</Styled.Tabs.Tab>;
+const Tab = ({ title, current, setCurrent }) => {
+    const toggleCurrent = (e) => {
+        setCurrent(title);
+    };
+
+    return (
+        <Styled.Tabs.Tab onClick={toggleCurrent} active={current === title}>
+            {title}
+        </Styled.Tabs.Tab>
+    );
 };
 export default Tab;
