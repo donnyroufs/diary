@@ -13,14 +13,21 @@ Todos.Todo = styled.li`
     justify-content: center;
     height: 80px;
     padding: 0.5rem 1rem;
-    background: ${({ theme, active }) => (active ? theme.darkBlue : theme.white)};
-    border: ${({ theme, active }) => (active ? "none" : `1px solid ${theme.gray}`)};
+    background: ${({ theme }) => theme.white};
+    border: ${({ theme, active }) => (active ? `1px solid ${theme.blue}` : `1px solid ${theme.gray}`)};
     border-radius: ${({ theme }) => theme.borderRadius};
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-weight: 500;
+    cursor: pointer;
     color: ${({ theme }) => theme.todoColour};
+    transition: 0.15s ease-in-out all;
+
+    ${(props) => console.log(props)};
+    &:hover {
+        border-color: ${({ theme }) => theme.blue};
+    }
 `;
 
 Todos.Header = styled.header`

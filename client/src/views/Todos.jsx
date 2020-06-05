@@ -39,7 +39,7 @@ const Todos = () => {
                     <Column>
                         <Styled.Todos>
                             {todos.map((todo) => (
-                                <Todo key={todo.id} {...todo} setSelected={setSelected} />
+                                <Todo key={todo.id} {...todo} setSelected={setSelected} selected={selected} />
                             ))}
                         </Styled.Todos>
                         <Utility.Button primary>Add Todo</Utility.Button>
