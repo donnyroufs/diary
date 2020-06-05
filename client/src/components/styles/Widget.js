@@ -9,7 +9,7 @@ export const Widget = styled.div`
 
     @media screen and (min-width: 968px) {
         max-width: ${(props) => (props.size === "big" ? "55%" : "40%")};
-        box-shadow: 4px 10px 14px 4px rgba(0, 0, 0, 0.05);
+        box-shadow: 4px 10px 14px 4px rgba(0, 0, 0, 0.02);
         padding: 2rem;
         min-height: 500px;
     }

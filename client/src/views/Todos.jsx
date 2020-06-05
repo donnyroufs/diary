@@ -9,10 +9,12 @@ import * as Utility from "../components/styles/Utilities";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin4Line } from "react-icons/ri";
 import { Roller } from "react-awesome-spinners";
+import useTabs from "../hooks/useTabs";
 
 const Todos = () => {
     const [value, setValues] = useState({});
-    const [current, setCurrent] = useState("Today");
+    const [current, setCurrent] = useTabs("Today");
+    const [selected, setSelected] = useState("");
     const { todos, loading } = useSelector((state) => state.todos);
 
     const handleChange = (e) =>
@@ -24,9 +26,9 @@ const Todos = () => {
     return (
         <Wrapper>
             <Header>
-                <Tabs>
-                    <Tab title="Today" current={current} setCurrent={setCurrent} />
-                    <Tab title="Tomorrow" current={current} setCurrent={setCurrent} />
+                <Tabs current={current} setCurrent={setCurrent}>
+                    <Tab title="Today" />
+                    <Tab title="Tomorrow" />
                 </Tabs>
             </Header>
 
@@ -37,7 +39,7 @@ const Todos = () => {
                     <Column>
                         <Styled.Todos>
                             {todos.map((todo) => (
-                                <Todo key={todo.id} {...todo} />
+                                <Todo key={todo.id} {...todo} setSelected={setSelected} />
                             ))}
                         </Styled.Todos>
                         <Utility.Button primary>Add Todo</Utility.Button>
@@ -48,11 +50,20 @@ const Todos = () => {
                     <Styled.Description.Header>
                         <Styled.Description.Title>Description</Styled.Description.Title>
                         <Styled.Description.Icons>
-                            <FaEdit className="todo-icon" />
-                            <RiDeleteBin4Line className="todo-icon todo-icon--danger" />
+                            <Utility.Button icon>
+                                <FaEdit className="todo-icon" />
+                            </Utility.Button>
+                            <Utility.Button icon>
+                                <RiDeleteBin4Line className="todo-icon todo-icon--danger" />
+                            </Utility.Button>
                         </Styled.Description.Icons>
                     </Styled.Description.Header>
-                    <Styled.Description.Body placeholder="Enter description" />
+
+                    <Styled.Description.Body>
+                        {!todos && "Looks like you have no todos for today!"}
+                        {!selected && todos && "Select a todo to view it's contents."}
+                        {selected && todos.find((todo) => todo.id === selected).description}
+                    </Styled.Description.Body>
                 </Styled.Description>
             </Container>
         </Wrapper>

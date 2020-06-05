@@ -36,6 +36,14 @@ export default createGlobalStyle`
     .ml-2 {
         margin-left: .5rem;
     }
+    
+    .mt-02 {
+        margin-top: 1px;
+        
+        @media screen and (min-width: 968px) {
+            margin-top: 2px;
+        }
+    }
 
     h1 {
         font-size: 2rem;

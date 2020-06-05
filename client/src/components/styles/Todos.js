@@ -70,8 +70,6 @@ Description.Title = styled.h3`
     }
 `;
 
-Description.Body = styled.textarea`
-    border: 0;
-    outline: none;
-    resize: none;
+Description.Body = styled.div`
+    min-height: 200px;
 `;

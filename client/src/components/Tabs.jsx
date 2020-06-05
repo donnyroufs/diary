@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import Tab from "./Tab";
+import React, { Children, cloneElement } from "react";
 import * as Styled from "./styles/Tabs";
 
-const Tabs = ({ children }) => {
-    return <Styled.Tabs>{children}</Styled.Tabs>;
+const Tabs = ({ children, ...props }) => {
+    return (
+        <Styled.Tabs>
+            {Children.map(children, (child, index) => cloneElement(child, { ...props, tabIndex: index }))}
+        </Styled.Tabs>
+    );
 };
 
 export default Tabs;

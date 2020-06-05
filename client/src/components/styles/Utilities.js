@@ -16,4 +16,18 @@ export const Button = styled.button`
     text-transform: uppercase;
     width: 100%;
     border-radius: 7px;
+    cursor: pointer;
+
+    ${({ icon }) =>
+        icon &&
+        `
+        background: transparent;
+        padding: 0;
+        width: auto;
+        transition: .2s ease-in-out all;
+        
+        &:hover {
+            opacity: .6;
+        }
+    `}
 `;

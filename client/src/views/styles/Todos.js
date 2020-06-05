@@ -34,7 +34,7 @@ export const Column = styled.div`
     width: 100%;
 
     @media screen and (min-width: 968px) {
-        max-width: 330px;
+        max-width: 380px;
         margin-right: 4rem;
     }
 `;

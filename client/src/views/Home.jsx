@@ -11,7 +11,7 @@ const Home = () => {
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget title="Todos" link="view completed" href="/todos" items={todos} />
+                <Widget title="Todos" link="more" href="/todos" items={todos} />
                 <Widget title="Exercise" link="more" href="/exercise" items={todos} size="big" />
             </Styled.Widgets>
 

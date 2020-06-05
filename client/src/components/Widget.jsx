@@ -10,7 +10,7 @@ const Widget = ({ link, title, subTitle, items, href, size }) => {
                     {title} {subTitle}
                 </Styled.Widget.Title>
                 <Styled.Widget.Link to={href}>
-                    {link} <FaLongArrowAltRight className="ml-2" />
+                    {link} <FaLongArrowAltRight className="ml-2 mt-02" />
                 </Styled.Widget.Link>
             </Styled.Widget.Wrapper>
             <Styled.Widget.Menu>
