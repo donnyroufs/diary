@@ -13,9 +13,7 @@ export const Container = styled.section`
     display: flex;
     flex-flow: column nowrap;
     margin: 0 2rem;
-    justify-content: ${(props) => (props.isLoading ? "center" : "flex-start")};
-    align-items: ${(props) => (props.isLoading ? "center" : "flex-start")};
-    height: ${(props) => (props.isLoading ? "250px" : "100%")};
+    height: 100%;
 
     @media screen and (min-width: 968px) {
         margin: 0;
@@ -33,6 +31,13 @@ export const Column = styled.div`
     flex-flow: column nowrap;
     width: 100%;
 
+    ${({ isLoading }) =>
+        isLoading &&
+        `
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+    `}
     @media screen and (min-width: 968px) {
         max-width: 380px;
         margin-right: 4rem;

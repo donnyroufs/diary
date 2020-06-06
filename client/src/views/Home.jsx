@@ -12,7 +12,7 @@ const Home = () => {
             <Banner />
             <Styled.Widgets>
                 <Widget title="Todos" link="more" href="/todos" items={todos} />
-                <Widget title="Exercise" link="more" href="/exercise" items={todos} size="big" />
+                <Widget title="Exercise" link="more" href="/exercise" size="big" />
             </Styled.Widgets>
 
             <Styled.Habbits>

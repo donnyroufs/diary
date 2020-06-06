@@ -32,9 +32,11 @@ const Todos = () => {
                 </Tabs>
             </Header>
 
-            <Container isLoading={loading}>
+            <Container>
                 {loading ? (
-                    <Roller />
+                    <Column isLoading={loading}>
+                        <Roller />
+                    </Column>
                 ) : (
                     <Column>
                         <Styled.Todos>

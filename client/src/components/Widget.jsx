@@ -14,9 +14,9 @@ const Widget = ({ link, title, subTitle, items, href, size }) => {
                 </Styled.Widget.Link>
             </Styled.Widget.Wrapper>
             <Styled.Widget.Menu>
-                {items.map(({ id, title }) => (
-                    <Styled.Widget.Item key={id}>{title}</Styled.Widget.Item>
-                ))}
+                {!items && <Styled.Widget.Item danger>Something went wrong...</Styled.Widget.Item>}
+                {items && items.length < 1 && <Styled.Widget.Item empty>{title} seems to be empty.</Styled.Widget.Item>}
+                {items && items.map(({ id, title }) => <Styled.Widget.Item key={id}>{title}</Styled.Widget.Item>)}
             </Styled.Widget.Menu>
         </Styled.Widget>
     );

@@ -33,7 +33,8 @@ Widget.Item = styled.li`
     display: flex;
     justify-content: space-between;
     padding: 1.25rem 0;
-    border-bottom: 1px solid ${({ theme }) => theme.gray};
+    border-bottom: ${({ theme, empty, danger }) => (empty || danger ? "none" : `1px solid ${theme.gray}`)};
+    color: ${({ danger, theme }) => danger && theme.red};
 `;
 
 Widget.Link = styled(Link)`
