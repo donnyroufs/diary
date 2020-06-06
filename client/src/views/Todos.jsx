@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Tabs from "../components/Tabs";
 import Tab from "../components/Tab";
@@ -8,23 +8,48 @@ import * as Styled from "../components/styles/Todos";
 import * as Utility from "../components/styles/Utilities";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin4Line } from "react-icons/ri";
+import { FcCheckmark } from "react-icons/fc";
 import { Roller } from "react-awesome-spinners";
 import useTabs from "../hooks/useTabs";
+import Modal from "../components/Modal";
+import { useDispatch } from "react-redux";
+import { addTodo, deleteTodo, toggleTodoComplete } from "../store/actions/todos";
 
 const Todos = () => {
-    const [value, setValues] = useState({});
+    const dispatch = useDispatch();
+    const [isOpen, setIsOpen] = useState(false);
     const [current, setCurrent] = useTabs("Today");
     const [selected, setSelected] = useState("");
     const { todos, loading } = useSelector((state) => state.todos);
 
-    const handleChange = (e) =>
-        setValues({
-            ...value,
-            [e.target.name]: e.target.value,
-        });
+    const createTodo = (payload) => {
+        dispatch(addTodo(payload));
+    };
+
+    const toggleModal = (e) => {
+        setIsOpen((old) => !old);
+    };
+
+    const handleDeleteTodo = (e) => {
+        if (!selected) return;
+        dispatch(deleteTodo(selected));
+        setSelected(null);
+    };
+
+    const handleToggleComplete = (e) => {
+        if (!selected) return;
+        dispatch(toggleTodoComplete({ id: selected, completed: todos.find((todo) => todo.id === selected).completed }));
+    };
+
+    const handleEditTodo = (e) => console.log(e.target);
+
+    useEffect(() => {
+        // @TODO: make new request for todos.
+    }, [current]);
 
     return (
         <Wrapper>
+            <Modal createTodo={createTodo} setIsOpen={setIsOpen} isOpen={isOpen} title="add new todo" />
             <Header>
                 <Tabs current={current} setCurrent={setCurrent}>
                     <Tab title="Today" />
@@ -40,25 +65,36 @@ const Todos = () => {
                 ) : (
                     <Column>
                         <Styled.Todos>
-                            {todos.map((todo) => (
-                                <Todo key={todo.id} {...todo} setSelected={setSelected} selected={selected} />
-                            ))}
+                            {!todos && <h5>something went wrong...</h5>}
+                            {todos && todos.length < 1 && <h5>You have no todos for {current}!</h5>}
+                            {todos &&
+                                todos.length > 0 &&
+                                todos.map((todo) => (
+                                    <Todo key={todo.id} {...todo} setSelected={setSelected} selected={selected} />
+                                ))}
                         </Styled.Todos>
-                        <Utility.Button primary>Add Todo</Utility.Button>
+                        <Utility.Button primary onClick={toggleModal}>
+                            Add Todo
+                        </Utility.Button>
                     </Column>
                 )}
 
                 <Styled.Description>
                     <Styled.Description.Header>
                         <Styled.Description.Title>Description</Styled.Description.Title>
-                        <Styled.Description.Icons>
-                            <Utility.Button icon>
-                                <FaEdit className="todo-icon" />
-                            </Utility.Button>
-                            <Utility.Button icon>
-                                <RiDeleteBin4Line className="todo-icon todo-icon--danger" />
-                            </Utility.Button>
-                        </Styled.Description.Icons>
+                        {selected && (
+                            <Styled.Description.Icons>
+                                <Utility.Button icon selected={selected} onClick={handleEditTodo}>
+                                    <FaEdit className="todo-icon" />
+                                </Utility.Button>
+                                <Utility.Button icon selected={selected} onClick={handleDeleteTodo}>
+                                    <RiDeleteBin4Line className="todo-icon todo-icon--danger" />
+                                </Utility.Button>
+                                <Utility.Button icon selected={selected} onClick={handleToggleComplete}>
+                                    <FcCheckmark className="todo-icon" />
+                                </Utility.Button>
+                            </Styled.Description.Icons>
+                        )}
                     </Styled.Description.Header>
 
                     <Styled.Description.Body>

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Header = styled.header`
     display: flex;
@@ -33,11 +33,11 @@ export const Column = styled.div`
 
     ${({ isLoading }) =>
         isLoading &&
-        `
-        justify-content: center;
-        align-items: center;
-        height: 250px;
-    `}
+        css`
+            justify-content: center;
+            align-items: center;
+            height: 250px;
+        `}
     @media screen and (min-width: 968px) {
         max-width: 380px;
         margin-right: 4rem;

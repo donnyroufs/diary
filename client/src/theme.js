@@ -14,3 +14,5 @@ export default {
     white: "#fff",
     todoColour: "#A9ACCE",
 };
+
+// @TODO: #5A60A1 (blue)

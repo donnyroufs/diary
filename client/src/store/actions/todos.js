@@ -16,6 +16,8 @@ export const fetchTodosFailed = (payload) => ({
     payload,
 });
 
+// @ACTION
+
 export const fetchTodos = () => async (dispatch) => {
     dispatch(fetchTodosRequest());
     return fetch(ENDPOINT)
@@ -29,4 +31,84 @@ export const fetchTodos = () => async (dispatch) => {
                 })
             )
         );
+};
+
+export const addTodosSuccess = (payload) => ({
+    type: types.ADD_TODO_SUCCESS,
+    payload,
+});
+
+export const addTodosFailed = (payload) => ({
+    type: types.ADD_TODO_FAILED,
+    payload,
+});
+
+//@ACTION
+export const addTodo = (payload) => async (dispatch) => {
+    return fetch(ENDPOINT, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => dispatch(addTodosSuccess(data)))
+        .catch((err) =>
+            dispatch(
+                addTodosFailed({
+                    ok: false,
+                    data: err.message,
+                })
+            )
+        );
+};
+
+export const toggleTodoCompleteRequest = () => ({
+    type: types.TOGGLE_TODO,
+});
+
+export const successToggleTodoComplete = (payload) => ({
+    type: types.TOGGLE_TODO_SUCCESS,
+    payload,
+});
+
+export const failedToggleTodoComplete = (payload) => ({
+    type: types.TOGGLE_TODO_FAILED,
+    payload,
+});
+
+export const toggleTodoComplete = ({ id, completed }) => (dispatch) => {
+    dispatch(toggleTodoCompleteRequest());
+    const toggleCompleted = !completed;
+    return fetch(`${ENDPOINT}?id=${id}&completed=${toggleCompleted}`, {
+        method: "PUT",
+    })
+        .then((res) => res.json())
+        .then((data) => dispatch(successToggleTodoComplete({ data: id })))
+        .catch((err) => dispatch(failedToggleTodoComplete(err.message)));
+};
+
+export const deleteTodoRequest = () => ({
+    type: types.DELETE_TODO,
+});
+
+export const successDeleteTodo = (payload) => ({
+    type: types.DELETE_TODO_SUCCESS,
+    payload,
+});
+
+export const failedDeleteTodo = (err) => ({
+    type: types.DELETE_TODO_FAILED,
+});
+
+// @ ACTION
+export const deleteTodo = (id) => async (dispatch) => {
+    dispatch(deleteTodoRequest());
+    return fetch(ENDPOINT, {
+        method: "DELETE",
+    })
+        .then((res) => res.json())
+        .then((_) => dispatch(successDeleteTodo({ data: id })))
+        .catch((err) => dispatch(failedDeleteTodo(err.message)));
 };

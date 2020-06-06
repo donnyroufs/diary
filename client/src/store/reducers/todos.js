@@ -27,6 +27,70 @@ export default (state = initialState, action) => {
                 todos: [],
                 error: action.payload.data,
             };
+
+        case types.ADD_TODO:
+            return {
+                ...state,
+                loading: true,
+            };
+
+        case types.ADD_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: [...state.todos, action.payload.data],
+                error: null,
+            };
+
+        case types.ADD_TODOS_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.data,
+            };
+        case types.DELETE_TODO:
+            return {
+                ...state,
+                loading: true,
+            };
+        case types.DELETE_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: state.todos.filter((todo) => todo.id !== action.payload.data),
+                error: null,
+            };
+        case types.DELETE_TODO_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.data,
+            };
+
+        case types.TOGGLE_TODO:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
+
+        case types.TOGGLE_TODO_SUCCESS:
+            console.log(action);
+            return {
+                ...state,
+                loading: false,
+                todos: state.todos.map((todo) =>
+                    todo.id === action.payload.data ? { ...todo, completed: !todo.completed } : todo
+                ),
+            };
+
+        case types.TOGGLE_TODO_FAILED:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.data,
+            };
+
         default:
             return state;
     }

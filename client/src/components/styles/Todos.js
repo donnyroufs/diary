@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Todos = styled.ul`
     list-style: none;
@@ -24,7 +24,13 @@ Todos.Todo = styled.li`
     color: ${({ theme }) => theme.todoColour};
     transition: 0.15s ease-in-out all;
 
-    ${(props) => console.log(props)};
+    /* @TODO: Proper styling */
+    ${({ completed }) =>
+        completed &&
+        css`
+            opacity: 0.5;
+        `}
+
     &:hover {
         border-color: ${({ theme }) => theme.blue};
     }

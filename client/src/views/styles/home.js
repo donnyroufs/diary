@@ -18,7 +18,7 @@ export const Habbits = styled.div`
     margin: 3rem 2rem;
 
     @media screen and (min-width: 968px) {
-        margin: 1rem 0;
+        margin: 1rem 0 3rem 0;
     }
 `;
 

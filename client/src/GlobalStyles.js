@@ -10,16 +10,27 @@ export default createGlobalStyle`
     *::after {
         box-sizing: border-box;
     }
+    
+    html, body, #root, #app {
+        @media screen and (min-width: 968px) {
+            height: 100%;
+        }
+    }
 
     body {
         margin: 0;
         font-family: "Poppins", sans-serif;
         color: ${theme.black};
+
     }
 
     #app {
         display: flex;
         margin: 0 0 4rem 0;
+
+        @media screen and (min-width: 968px) {
+            margin: 0;
+        }
     }
 
     .link-icons {
