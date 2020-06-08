@@ -45,6 +45,7 @@ class Controller {
             });
             this.response(res, 200, data);
         } catch (err) {
+            console.log(err);
             this.response(res, 404, err, false);
         }
     }

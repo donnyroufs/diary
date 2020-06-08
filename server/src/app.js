@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import apiRoutes from "./api/routes/index";
+import "./utils/datePrototypes";
 
 const app = express();
 

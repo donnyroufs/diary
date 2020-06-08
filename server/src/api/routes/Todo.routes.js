@@ -6,6 +6,7 @@ const router = Router();
 
 const controller = new TodoController(prisma.todo);
 
+router.get("/date", controller.byDate);
 router.get("/", controller.all);
 router.post("/", controller.create);
 router.put("/", controller.update);
