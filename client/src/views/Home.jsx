@@ -8,7 +8,7 @@ import { fetchTodosByDate } from "../store/actions/todos";
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { todos, todosByDate } = useSelector((state) => state.todos);
+    const { todosByDate } = useSelector((state) => state.todos);
 
     useEffect(() => {
         dispatch(fetchTodosByDate("Today"));

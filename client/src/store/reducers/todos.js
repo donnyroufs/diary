@@ -94,11 +94,13 @@ export default (state = initialState, action) => {
             };
 
         case types.TOGGLE_TODO_SUCCESS:
-            console.log(action);
             return {
                 ...state,
                 loading: false,
                 todos: state.todos.map((todo) =>
+                    todo.id === action.payload.data ? { ...todo, completed: !todo.completed } : todo
+                ),
+                todosByDate: state.todosByDate.map((todo) =>
                     todo.id === action.payload.data ? { ...todo, completed: !todo.completed } : todo
                 ),
             };
