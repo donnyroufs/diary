@@ -1,6 +1,7 @@
 import React from "react";
 import * as Styled from "./styles/Widget";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import WidgetTodo from "./WidgetTodo";
 
 const Widget = ({ link, title, subTitle, items, href, size }) => {
     return (
@@ -16,7 +17,14 @@ const Widget = ({ link, title, subTitle, items, href, size }) => {
             <Styled.Widget.Menu>
                 {!items && <Styled.Widget.Item danger>Something went wrong...</Styled.Widget.Item>}
                 {items && items.length < 1 && <Styled.Widget.Item empty>{title} seems to be empty.</Styled.Widget.Item>}
-                {items && items.map(({ id, title }) => <Styled.Widget.Item key={id}>{title}</Styled.Widget.Item>)}
+                {items && items.filter((item) => item.completed).length <= 0 && (
+                    <Styled.Widget.Item info>You've completed all {title} for today!</Styled.Widget.Item>
+                )}
+                {items &&
+                    items.length > 0 &&
+                    items
+                        .filter(({ completed }) => completed)
+                        .map((todo) => <WidgetTodo {...todo} widgetTitle={title} />)}
             </Styled.Widget.Menu>
         </Styled.Widget>
     );

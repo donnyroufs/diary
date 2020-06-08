@@ -105,7 +105,7 @@ export const failedDeleteTodo = (err) => ({
 // @ ACTION
 export const deleteTodo = (id) => async (dispatch) => {
     dispatch(deleteTodoRequest());
-    return fetch(ENDPOINT, {
+    return fetch(`${ENDPOINT}?id=${id}`, {
         method: "DELETE",
     })
         .then((res) => res.json())

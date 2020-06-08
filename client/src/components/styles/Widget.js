@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Widget = styled.div`
     display: flex;
@@ -35,6 +35,12 @@ Widget.Item = styled.li`
     padding: 1.25rem 0;
     border-bottom: ${({ theme, empty, danger }) => (empty || danger ? "none" : `1px solid ${theme.gray}`)};
     color: ${({ danger, theme }) => danger && theme.red};
+    ${({ theme, info }) =>
+        info &&
+        css`
+            color: ${theme.blue};
+            border-bottom: none;
+        `}
 `;
 
 Widget.Link = styled(Link)`
