@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Banner from "../components/Banner";
 import Widget from "../components/Widget";
 import Habit from "../components/Habit";
 import * as Styled from "./styles/Home";
+import { fetchTodosByDate } from "../store/actions/todos";
 
 const Home = () => {
-    const todos = useSelector((state) => state.todos.todos);
+    const dispatch = useDispatch();
+    const { todos, todosByDate } = useSelector((state) => state.todos);
+
+    useEffect(() => {
+        dispatch(fetchTodosByDate("Today"));
+    }, []);
+
     return (
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget title="Todos" link="more" href="/todos" items={todos} />
+                <Widget title="Todos" link="more" href="/todos" items={todosByDate} />
                 <Widget title="Exercise" link="more" href="/exercise" size="big" />
             </Styled.Widgets>
 

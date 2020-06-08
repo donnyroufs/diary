@@ -5,7 +5,7 @@ import * as Styled from "./styles/Banner";
 import { Highlight } from "./styles/Utilities";
 
 const Banner = () => {
-    const todos = useSelector((state) => state.todos.todos);
+    const { todosByDate: todos } = useSelector((state) => state.todos);
 
     const percentageDone = () => {
         const _todos = todos.length;

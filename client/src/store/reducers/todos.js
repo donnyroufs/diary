@@ -3,6 +3,7 @@ import { todos as types } from "../constants";
 const initialState = {
     loading: true,
     todos: [],
+    todosByDate: [],
     error: null,
 };
 
@@ -27,7 +28,25 @@ export default (state = initialState, action) => {
                 todos: [],
                 error: action.payload.data,
             };
-
+        case types.FETCH_TODOS_BYDATE:
+            return {
+                ...state,
+                loading: true,
+            };
+        case types.SUCCESS_TODOS_BYDATE:
+            return {
+                ...state,
+                loading: false,
+                todosByDate: action.payload.data,
+                error: null,
+            };
+        case types.FAILED_TODOS_BYDATE:
+            return {
+                ...state,
+                loading: false,
+                todosByDate: [],
+                error: action.payload.data,
+            };
         case types.ADD_TODO:
             return {
                 ...state,

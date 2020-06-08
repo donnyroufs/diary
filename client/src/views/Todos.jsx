@@ -13,14 +13,14 @@ import { Roller } from "react-awesome-spinners";
 import useTabs from "../hooks/useTabs";
 import Modal from "../components/Modal";
 import { useDispatch } from "react-redux";
-import { addTodo, deleteTodo, toggleTodoComplete } from "../store/actions/todos";
+import { addTodo, deleteTodo, toggleTodoComplete, fetchTodosByDate } from "../store/actions/todos";
 
 const Todos = () => {
     const dispatch = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
     const [current, setCurrent] = useTabs("Today");
     const [selected, setSelected] = useState("");
-    const { todos, loading } = useSelector((state) => state.todos);
+    const { todosByDate: todos, loading } = useSelector((state) => state.todos);
 
     const createTodo = (payload) => {
         dispatch(addTodo(payload));
@@ -44,7 +44,7 @@ const Todos = () => {
     const handleEditTodo = (e) => console.log(e.target);
 
     useEffect(() => {
-        // @TODO: make new request for todos.
+        dispatch(fetchTodosByDate(current));
     }, [current]);
 
     return (

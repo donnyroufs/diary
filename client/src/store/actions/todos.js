@@ -33,6 +33,36 @@ export const fetchTodos = () => async (dispatch) => {
         );
 };
 
+export const fetchTodosByDateRequest = () => ({
+    type: types.FETCH_TODOS_BYDATE,
+});
+
+export const fetchTodosByDateSuccess = (payload) => ({
+    type: types.SUCCESS_TODOS_BYDATE,
+    payload,
+});
+
+export const fetchTodosByDateFailed = (payload) => ({
+    type: types.FAILED_TODOS_BYDATE,
+    payload,
+});
+
+// @ACTION
+export const fetchTodosByDate = (date) => async (dispatch) => {
+    dispatch(fetchTodosByDateRequest());
+    return fetch(`${ENDPOINT}/date?date=${date}`)
+        .then((res) => res.json())
+        .then((data) => dispatch(fetchTodosByDateSuccess(data)))
+        .catch((err) =>
+            dispatch(
+                fetchTodosByDateFailed({
+                    ok: false,
+                    data: err.message,
+                })
+            )
+        );
+};
+
 export const addTodosSuccess = (payload) => ({
     type: types.ADD_TODO_SUCCESS,
     payload,
