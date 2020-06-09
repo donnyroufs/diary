@@ -20,7 +20,7 @@ const Todos = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [current, setCurrent] = useTabs("Today");
     const [selected, setSelected] = useState("");
-    const { todosByDate: todos, loading } = useSelector((state) => state.todos);
+    const { todos, loading } = useSelector((state) => state.todos);
 
     const createTodo = (payload) => {
         dispatch(addTodo(payload));

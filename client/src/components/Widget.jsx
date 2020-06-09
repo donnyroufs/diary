@@ -8,7 +8,7 @@ const Widget = ({ link, title, subTitle, items, href, size }) => {
         if (!items) {
             return <Styled.Widget.Item danger>Something went wrong...</Styled.Widget.Item>;
         } else if (items && items.length < 1) {
-            return <Styled.Widget.Item empty>{title}</Styled.Widget.Item>;
+            return <Styled.Widget.Item info>You have no {title} for today!</Styled.Widget.Item>;
         } else if (items && items.filter((item) => !item.completed).length <= 0) {
             return <Styled.Widget.Item info>You've completed all {title} for today!</Styled.Widget.Item>;
         } else {

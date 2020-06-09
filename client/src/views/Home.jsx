@@ -8,7 +8,7 @@ import { fetchTodosByDate } from "../store/actions/todos";
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { todosByDate } = useSelector((state) => state.todos);
+    const { todos } = useSelector((state) => state.todos);
 
     useEffect(() => {
         dispatch(fetchTodosByDate("Today"));
@@ -18,7 +18,7 @@ const Home = () => {
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget title="Todos" link="more" href="/todos" items={todosByDate} />
+                <Widget title="Todos" link="more" href="/todos" items={todos} />
                 <Widget title="Exercise" link="more" href="/exercise" size="big" />
             </Styled.Widgets>
 

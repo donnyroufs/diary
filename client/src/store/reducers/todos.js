@@ -2,8 +2,8 @@ import { todos as types } from "../constants";
 
 const initialState = {
     loading: true,
+    todos: [], // Not used, will be used later to view all the todos.
     todos: [],
-    todosByDate: [],
     error: null,
 };
 
@@ -37,14 +37,14 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                todosByDate: action.payload.data,
+                todos: action.payload.data,
                 error: null,
             };
         case types.FAILED_TODOS_BYDATE:
             return {
                 ...state,
                 loading: false,
-                todosByDate: [],
+                todos: [],
                 error: action.payload.data,
             };
         case types.ADD_TODO:
@@ -98,9 +98,6 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: false,
                 todos: state.todos.map((todo) =>
-                    todo.id === action.payload.data ? { ...todo, completed: !todo.completed } : todo
-                ),
-                todosByDate: state.todosByDate.map((todo) =>
                     todo.id === action.payload.data ? { ...todo, completed: !todo.completed } : todo
                 ),
             };
