@@ -14,7 +14,7 @@ const Widget = ({ link, title, subTitle, items, href, size }) => {
         } else {
             return items
                 .filter(({ completed }) => !completed)
-                .map((todo) => <WidgetTodo {...todo} widgetTitle={title} />);
+                .map((todo) => <WidgetTodo {...todo} widgetTitle={title} key={todo.id} />);
         }
     };
     return (
