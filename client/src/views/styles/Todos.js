@@ -16,7 +16,7 @@ export const Container = styled.section`
     height: 100%;
 
     @media screen and (min-width: 968px) {
-        margin: 0;
+        margin: 0 0 4rem 0;
         flex-flow: row nowrap;
     }
 `;

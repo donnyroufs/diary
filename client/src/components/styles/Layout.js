@@ -12,8 +12,8 @@ export const Container = styled.section`
     }
 
     @media screen and (min-width: 2150px) {
-        margin-left: ${sidebarWidth + 450}px;
-        margin-right: 450px;
+        margin-left: ${sidebarWidth + 400}px;
+        margin-right: 400px;
     }
 `;
 

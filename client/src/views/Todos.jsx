@@ -9,7 +9,7 @@ import * as Utility from "../components/styles/Utilities";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin4Line } from "react-icons/ri";
 import { FcCheckmark } from "react-icons/fc";
-import { Roller } from "react-awesome-spinners";
+import { Roller, Ellipsis } from "react-awesome-spinners";
 import useTabs from "../hooks/useTabs";
 import Modal from "../components/Modal";
 import { useDispatch } from "react-redux";
@@ -20,10 +20,10 @@ const Todos = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [current, setCurrent] = useTabs("Today");
     const [selected, setSelected] = useState("");
-    const { todos, loading } = useSelector((state) => state.todos);
+    const { todos, loading, error } = useSelector((state) => state.todos);
 
     const createTodo = (payload) => {
-        dispatch(addTodo(payload));
+        dispatch(addTodo({ ...payload, current }));
     };
 
     const toggleModal = (e) => {
@@ -43,8 +43,23 @@ const Todos = () => {
 
     const handleEditTodo = (e) => console.log(e.target);
 
+    const sortByCompleted = () => todos.sort((x, y) => x.completed - y.completed);
+
+    const renderDescription = () => {
+        if (error) {
+            return "Something went wrong";
+        } else if (todos.length <= 0) {
+            return `You have no todos for ${current.toLowerCase()}.`;
+        } else if (!selected) {
+            return "Select a todo to view it's contents.";
+        } else {
+            return todos.find((todo) => todo.id === selected).description;
+        }
+    };
+
     useEffect(() => {
         dispatch(fetchTodosByDate(current));
+        setSelected("");
     }, [current]);
 
     return (
@@ -65,11 +80,11 @@ const Todos = () => {
                 ) : (
                     <Column>
                         <Styled.Todos>
-                            {!todos && <h5>something went wrong...</h5>}
-                            {todos && todos.length < 1 && <h5>You have no todos for {current}!</h5>}
-                            {todos &&
+                            {error && <h5>something went wrong...</h5>}
+                            {!error && todos.length <= 0 && <h5>You have no todos for {current.toLowerCase()}!</h5>}
+                            {todos.length > 0 &&
                                 todos.length > 0 &&
-                                todos.map((todo) => (
+                                sortByCompleted().map((todo) => (
                                     <Todo key={todo.id} {...todo} setSelected={setSelected} selected={selected} />
                                 ))}
                         </Styled.Todos>
@@ -97,11 +112,7 @@ const Todos = () => {
                         )}
                     </Styled.Description.Header>
 
-                    <Styled.Description.Body>
-                        {!todos && "Looks like you have no todos for today!"}
-                        {!selected && todos && "Select a todo to view it's contents."}
-                        {selected && todos.find((todo) => todo.id === selected).description}
-                    </Styled.Description.Body>
+                    <Styled.Description.Body>{loading ? <Ellipsis /> : renderDescription()}</Styled.Description.Body>
                 </Styled.Description>
             </Container>
         </Wrapper>

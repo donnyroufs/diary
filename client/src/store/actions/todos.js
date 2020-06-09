@@ -74,8 +74,9 @@ export const addTodosFailed = (payload) => ({
 });
 
 //@ACTION
-export const addTodo = (payload) => async (dispatch) => {
-    return fetch(ENDPOINT, {
+export const addTodo = (_payload) => async (dispatch) => {
+    const { current: date, ...payload } = _payload;
+    return fetch(`${ENDPOINT}?date=${date}`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -83,7 +84,7 @@ export const addTodo = (payload) => async (dispatch) => {
         },
     })
         .then((res) => res.json())
-        .then((data) => dispatch(addTodosSuccess(data)))
+        .then((data) => (data.ok ? dispatch(addTodosSuccess(data)) : dispatch(addTodosFailed(data))))
         .catch((err) =>
             dispatch(
                 addTodosFailed({

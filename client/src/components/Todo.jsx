@@ -5,7 +5,7 @@ const Todo = ({ id, title, completed, setSelected, selected }) => {
     const handleClick = (e) => {
         setSelected((oldValue) => (oldValue === id ? null : id));
     };
-    console.log(completed);
+
     return (
         <Styled.Todos.Todo onClick={handleClick} active={selected === id} completed={completed}>
             <Styled.Todos.Header>Todo</Styled.Todos.Header>
