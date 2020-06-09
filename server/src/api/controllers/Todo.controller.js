@@ -9,12 +9,21 @@ class TodoController extends controller {
 
     // @TODO: Set date based on today or tomorrow
     async create(req, res) {
+        const { query } = req;
         const { body } = req;
+
+        const date = query.date ? query.date.toLowerCase() : "today";
+
+        const todaysDate = new Date().addDays().toISOString();
+        const tomorrowsDate = new Date().addDays(1).toISOString();
+
+        console.log(todaysDate);
+
         try {
             const data = await this.db.create({
                 data: {
                     ...body,
-                    createdAt: new Date().addDays(2).toISOString(),
+                    createdAt: date === "today" ? todaysDate : tomorrowsDate,
                     User: {
                         connect: {
                             id: 2, // Hard coded user!
@@ -30,8 +39,7 @@ class TodoController extends controller {
     }
 
     async update(req, res) {
-        const { query } = req;
-        const { id, completed } = query;
+        const { id, completed } = req.query;
 
         try {
             const data = await this.db.update({
@@ -51,10 +59,11 @@ class TodoController extends controller {
 
     async byDate(req, res) {
         const { query } = req;
-        const date = query.date.toLowerCase() || "today";
+        const date = query.date ? query.date.toLowerCase() : "today";
 
         const yesterdaysDate = new Date().addDays(-1).toISOString();
         const todaysDate = new Date().addDays().toISOString();
+        const tomorrowsDate = new Date().addDays(1).toISOString();
         const twoDaysFromNow = new Date().addDays(2).toISOString();
 
         // @TODO: See if I can refactor this with more brilliant code.
@@ -62,7 +71,7 @@ class TodoController extends controller {
             const data = await this.db.findMany({
                 where: {
                     createdAt: {
-                        lt: date === "today" ? todaysDate : twoDaysFromNow,
+                        lt: date === "today" ? tomorrowsDate : twoDaysFromNow,
                         gt: date === "today" ? yesterdaysDate : todaysDate,
                     },
                 },
