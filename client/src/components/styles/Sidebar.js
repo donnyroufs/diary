@@ -56,6 +56,10 @@ export const Menu = styled.ul`
     padding: 0;
     display: flex;
     flex-flow: column nowrap;
+
+    @media screen and (min-width: 968px) {
+        margin: 1.5rem 0 0 0;
+    }
 `;
 
 export const Item = styled.li`
