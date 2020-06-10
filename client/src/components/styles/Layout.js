@@ -8,7 +8,7 @@ export const Container = styled.section`
 
     @media screen and (min-width: 968px) {
         margin-left: ${sidebarWidth}px;
-        width: 50%;
+        width: 65%;
     }
 
     @media screen and (min-width: 2150px) {

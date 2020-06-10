@@ -49,6 +49,8 @@ export const Description = styled.div`
     flex-flow: column nowrap;
     width: 100%;
     margin-top: 2rem;
+    line-height: 1.85;
+    height: 100%;
 
     @media screen and (min-width: 968px) {
         margin-top: 0;
@@ -85,4 +87,5 @@ Description.Title = styled.h3`
 
 Description.Body = styled.div`
     min-height: 200px;
+    padding-top: 0.5rem;
 `;
