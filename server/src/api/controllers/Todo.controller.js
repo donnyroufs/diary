@@ -41,18 +41,18 @@ class TodoController extends controller {
     }
 
     async update(req, res) {
-        const { id, completed } = req.query;
+        const { id, completed, ...body } = req.query;
 
         try {
             const data = await this.db.update({
                 where: { id: Number(id) },
                 data: {
                     completed: completed === "true",
+                    ...body,
                 },
             });
             this.response(res, 200, data);
         } catch (err) {
-            console.log(err);
             this.response(res, 404, err, false);
         }
     }
