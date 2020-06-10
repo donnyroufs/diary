@@ -64,12 +64,12 @@ export const fetchTodosByDate = (date) => async (dispatch) => {
 };
 
 export const addTodosSuccess = (payload) => ({
-    type: types.ADD_TODO_SUCCESS,
+    type: types.SUCCESS_ADD_TODO,
     payload,
 });
 
 export const addTodosFailed = (payload) => ({
-    type: types.ADD_TODO_FAILED,
+    type: types.FAILED_ADD_TODO,
     payload,
 });
 
@@ -100,12 +100,12 @@ export const toggleTodoCompleteRequest = () => ({
 });
 
 export const successToggleTodoComplete = (payload) => ({
-    type: types.TOGGLE_TODO_SUCCESS,
+    type: types.SUCCESS_TOGGLE_TODO,
     payload,
 });
 
 export const failedToggleTodoComplete = (payload) => ({
-    type: types.TOGGLE_TODO_FAILED,
+    type: types.FAILED_TOGGLE_TODO,
     payload,
 });
 
@@ -125,12 +125,12 @@ export const deleteTodoRequest = () => ({
 });
 
 export const successDeleteTodo = (payload) => ({
-    type: types.DELETE_TODO_SUCCESS,
+    type: types.SUCCESS_DELETE_TODO,
     payload,
 });
 
 export const failedDeleteTodo = (err) => ({
-    type: types.DELETE_TODO_FAILED,
+    type: types.FAILED_TOGGLE_TODO,
 });
 
 // @ ACTION
