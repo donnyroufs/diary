@@ -43,7 +43,7 @@ export const Button = styled.button`
 
 export const Form = styled.form``;
 
-Form.Group = styled.div`
+Form.Group = styled.form`
     ${({ theme }) => css`
         display: flex;
         flex-flow: column nowrap;

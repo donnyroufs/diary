@@ -143,3 +143,27 @@ export const deleteTodo = (id) => async (dispatch) => {
         .then((_) => dispatch(successDeleteTodo({ data: id })))
         .catch((err) => dispatch(failedDeleteTodo(err.message)));
 };
+
+export const updateTodoRequest = () => ({
+    type: types.UPDATE_TODO,
+});
+
+export const successUpdateTodoRequest = (payload) => ({
+    type: types.SUCCESS_UPDATE_TODO,
+    payload,
+});
+
+export const failedUpdateTodoRequest = (payload) => ({
+    type: types.FAILED_UPDATE_TODO,
+    payload,
+});
+
+export const updateTodo = ({ id, title, description }) => (dispatch) => {
+    dispatch(updateTodoRequest());
+    return fetch(`${ENDPOINT}?id=${id}&title=${title}&description=${description}`, {
+        method: "PUT",
+    })
+        .then((res) => res.json())
+        .then((data) => dispatch(successUpdateTodoRequest(data)))
+        .catch((err) => dispatch(failedUpdateTodoRequest(err.message)));
+};

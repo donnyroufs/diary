@@ -109,6 +109,29 @@ export default (state = initialState, action) => {
                 error: action.payload.data,
             };
 
+        case types.UPDATE_TODO:
+            return {
+                ...state,
+                loading: true,
+                error: null,
+            };
+
+        case types.SUCCESS_UPDATE_TODO:
+            return {
+                ...state,
+                loading: false,
+                todos: state.todos.map((todo) =>
+                    todo.id === action.payload.data.id ? { ...action.payload.data } : todo
+                ),
+            };
+
+        case types.FAILED_UPDATE_TODO:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.data,
+            };
+
         default:
             return state;
     }
