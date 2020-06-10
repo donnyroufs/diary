@@ -15,7 +15,8 @@ export const Modal = styled.div`
         `}
 
     @media screen and (min-width: 968px) {
-        width: calc(100% - 400px);
+        justify-content: center;
+        left: 200px;
     }
 `;
 
