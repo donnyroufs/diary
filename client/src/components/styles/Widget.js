@@ -31,8 +31,9 @@ Widget.Menu = styled.ul`
 
 Widget.Item = styled.li`
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 0;
+    padding: 1.1rem 0;
     border-bottom: ${({ theme, empty, danger }) => (empty || danger ? "none" : `1px solid ${theme.gray}`)};
     color: ${({ danger, theme }) => danger && theme.red};
     ${({ theme, info }) =>
