@@ -1,21 +1,8 @@
-const TODOS_PREFIX = "[TODOS] ";
+import { createTypes } from "../utils/createTypes";
 
-const todos = {
-    FETCH_TODOS: TODOS_PREFIX.concat("FETCH_TODOS"),
-    SUCCESS_TODOS: TODOS_PREFIX.concat("SUCCESS_TODOS"),
-    FAILED_TODOS: TODOS_PREFIX.concat("FAILED_TODOS"),
-    FETCH_TODOS_BYDATE: TODOS_PREFIX.concat("FETCH_TODOS_BYDATE"),
-    SUCCESS_TODOS_BYDATE: TODOS_PREFIX.concat("SUCCESS_TODOS_BYDATE"),
-    FAILED_TODOS_BYDATE: TODOS_PREFIX.concat("FAILED_TODOS_BYDATE"),
-    ADD_TODO: TODOS_PREFIX.concat("ADD_TODO"),
-    ADD_TODO_SUCCESS: TODOS_PREFIX.concat("ADD_TODO_SUCCESS"),
-    ADD_TODO_FAILED: TODOS_PREFIX.concat("ADD_TODO_FAILED"),
-    DELETE_TODO: TODOS_PREFIX.concat("DELETE_TODO"),
-    DELETE_TODO_SUCCESS: TODOS_PREFIX.concat("DELETE_TODO_SUCCESS"),
-    DELETE_TODO_FAILED: TODOS_PREFIX.concat("DELETE_TODO_FAILED"),
-    TOGGLE_TODO: TODOS_PREFIX.concat("TOGGLE_TODO"),
-    TOGGLE_TODO_SUCCESS: TODOS_PREFIX.concat("TOGGLE_TODO_SUCCESS"),
-    TOGGLE_TODO_FAILED: TODOS_PREFIX.concat("TOGGLE_TODO_FAILED"),
+const TODOS_CONST = {
+    prefix: "[TODOS]",
+    constants: ["fetch_todos", "fetch_todos_bydate", "add_todo", "delete_todo", "toggle_todo"],
 };
 
-export { todos };
+export const todos = createTypes(TODOS_CONST);

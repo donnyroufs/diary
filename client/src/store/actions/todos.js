@@ -7,12 +7,12 @@ export const fetchTodosRequest = () => ({
 });
 
 export const fetchTodosSuccess = (payload) => ({
-    type: types.SUCCESS_TODOS,
+    type: types.SUCCESS_FETCH_TODOS,
     payload,
 });
 
 export const fetchTodosFailed = (payload) => ({
-    type: types.FAILED_TODOS,
+    type: types.FAILED_FETCH_TODOS,
     payload,
 });
 
@@ -38,12 +38,12 @@ export const fetchTodosByDateRequest = () => ({
 });
 
 export const fetchTodosByDateSuccess = (payload) => ({
-    type: types.SUCCESS_TODOS_BYDATE,
+    type: types.SUCCESS_FETCH_TODOS_BYDATE,
     payload,
 });
 
 export const fetchTodosByDateFailed = (payload) => ({
-    type: types.FAILED_TODOS_BYDATE,
+    type: types.FAILED_FETCH_TODOS_BYDATE,
     payload,
 });
 
