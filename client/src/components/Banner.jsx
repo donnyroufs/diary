@@ -10,7 +10,7 @@ const Banner = () => {
     const percentageDone = () => {
         const _todos = todos.length;
         const _completed = todos.filter((todo) => todo.completed).length;
-        return ((_completed / _todos) * 100).toFixed(2);
+        return ((_completed / _todos) * 100).toFixed(0);
     };
 
     return (
