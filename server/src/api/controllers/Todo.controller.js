@@ -17,7 +17,9 @@ class TodoController extends controller {
         const todaysDate = new Date().addDays().toISOString();
         const tomorrowsDate = new Date().addDays(1).toISOString();
 
-        console.log(todaysDate);
+        if ((!body.title && body.title.length <= 0) || (!body.description && body.description.length <= 0)) {
+            return this.response(res, 400, "Title or description is empty", false);
+        }
 
         try {
             const data = await this.db.create({
