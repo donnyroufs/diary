@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as Styles from "./styles/Modal";
 import { Form, Button } from "./styles/Utilities";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 const Modal = ({ createTodo, title, isOpen, setIsOpen }) => {
+    const ref = useRef();
     const [values, setValues] = useState({
         title: "",
         description: "",
+    });
+
+    useOnclickOutside(ref, () => {
+        setIsOpen(false);
     });
 
     const handleAddTodo = (e) => {
@@ -15,6 +21,7 @@ const Modal = ({ createTodo, title, isOpen, setIsOpen }) => {
     };
 
     const handleCloseModal = (e) => {
+        console.log("close me");
         e.preventDefault();
         setIsOpen(false);
     };
@@ -31,7 +38,7 @@ const Modal = ({ createTodo, title, isOpen, setIsOpen }) => {
         <React.Fragment>
             <Styles.Modal.Overlay isOpen={isOpen} onClick={handleCloseModal} />
             <Styles.Modal isOpen={isOpen}>
-                <Styles.Modal.Inner>
+                <Styles.Modal.Inner ref={ref}>
                     <Styles.Modal.Title>{title}</Styles.Modal.Title>
                     <Form.Group>
                         <Form.Label>add todo</Form.Label>
