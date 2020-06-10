@@ -63,7 +63,7 @@ Form.Group = styled.div`
 Form.Label = styled.label`
     ${({ theme }) => css`
         text-transform: uppercase;
-        color: ${theme.blue};
+        color: ${theme.secondaryBlue};
         position: absolute;
         top: 14px;
         left: 2rem;
@@ -77,20 +77,15 @@ Form.Input = styled.input`
     ${({ theme }) => css`
         display: flex;
         align-items: center;
-        padding: 0.9rem 2rem 0 2rem;
+        padding: 1.1rem 2rem 0 2rem;
         height: 66px;
-        color: ${theme.darkBlue};
         font-weight: 500;
         border: none;
         background: transparent;
         /* text-transform: uppercase; */
         letter-spacing: 0.03em;
-        font-size: 16px
-        &:focus {
-            outline: none;
-            border: none;
-        }
-
+        font-size: 16px;
+        color: ${theme.opacityBlue};
         &::placeholder {
             text-transform: uppercase;
         }
@@ -102,13 +97,30 @@ Form.TextArea = styled.textarea`
         resize: none;
         min-height: 200px;
         border: none;
-        /* padding: 2.5rem 2rem; */
-        padding: 2rem 2rem;
+        padding: 2.2rem 2rem;
         background: transparent;
         letter-spacing: 0.03em;
+        color: ${theme.opacityBlue};
 
         &::placeholder {
             text-transform: uppercase;
         }
+    `}
+`;
+
+export const Message = styled.div`
+    ${({ theme, info }) => css`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 80px;
+        border-radius: ${theme.borderRadius};
+        margin-bottom: ${(props) => props["mb-2"] && "2rem"};
+
+        ${info &&
+        css`
+            background-color: ${theme.lightBlue};
+        `}
     `}
 `;

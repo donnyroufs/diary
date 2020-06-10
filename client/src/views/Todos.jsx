@@ -80,8 +80,12 @@ const Todos = () => {
                 ) : (
                     <Column>
                         <Styled.Todos>
-                            {error && <h5>something went wrong...</h5>}
-                            {!error && todos.length <= 0 && <h5>You have no todos for {current.toLowerCase()}!</h5>}
+                            {error && <Utility.Message danger>Something went wrong...</Utility.Message>}
+                            {!error && todos.length <= 0 && (
+                                <Utility.Message info mb-2>
+                                    You have no todos for {current.toLowerCase()}!
+                                </Utility.Message>
+                            )}
                             {todos.length > 0 &&
                                 todos.length > 0 &&
                                 sortByCompleted().map((todo) => (

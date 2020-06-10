@@ -15,7 +15,7 @@ export const Habit = styled.div`
 `;
 
 Habit.Streak = styled.h1`
-    background-color: ${({ theme, danger }) => (danger ? theme.opacityRed : theme.blue)};
+    background-color: ${({ theme, danger }) => (danger ? theme.opacityRed : theme.secondaryBlue)};
     border-radius: 6px;
     padding: 1rem 1.5rem;
     color: #fff;

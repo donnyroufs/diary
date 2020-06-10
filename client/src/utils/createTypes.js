@@ -16,11 +16,3 @@ export const createTypes = ({ constants, prefix = "[APP]" }) =>
         }),
         {}
     );
-
-// USAGE:
-// const TODO_CONST = {
-//   prefix: "[TODOS]",
-//   constants: ["fetch_todos", "remove_todos", "toggle_todos"]
-// };
-
-// const types = createTypes(TODO_CONST);

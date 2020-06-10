@@ -1,9 +1,10 @@
 export default {
     black: "#1C1B1B",
     blue: "#5070E9",
+    secondaryBlue: "#5A60A1",
     darkBlue: "#515371",
     lightBlue: "#D5E7F6",
-    opacityBlue: "#BBBFE2",
+    opacityBlue: "#A9ACCE",
     red: "#D9728F",
     lightRed: "#D9728F",
     opacityRed: "#F8B4C7",
@@ -12,7 +13,4 @@ export default {
     gray: "#D5D5D5",
     darkGray: "#878686",
     white: "#fff",
-    todoColour: "#A9ACCE",
 };
-
-// @TODO: #5A60A1 (blue)

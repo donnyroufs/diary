@@ -8,7 +8,7 @@ const Todo = ({ id, title, completed, setSelected, selected }) => {
 
     return (
         <Styled.Todos.Todo onClick={handleClick} active={selected === id} completed={completed}>
-            <Styled.Todos.Header>Todo</Styled.Todos.Header>
+            <Styled.Todos.Header active={selected === id}>Todo</Styled.Todos.Header>
             {title}
         </Styled.Todos.Todo>
     );

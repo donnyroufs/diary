@@ -52,6 +52,8 @@ Banner.Wrapper = styled.div`
     @media screen and (min-width: 968px) {
         order: 1;
         padding: 1rem 0;
+        text-align: left;
+        padding-left: 4rem;
     }
 `;
 

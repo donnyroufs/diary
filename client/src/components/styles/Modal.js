@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 export const Modal = styled.div`
     display: none;
     position: fixed;
@@ -52,28 +53,6 @@ Modal.Inner = styled.div`
     `}
 `;
 
-// export const Modal = styled.div`
-//     display: none;
-//     background: white;
-//     height: 100%;
-//     width: 100%;
-
-//     ${({ isOpen }) =>
-//         isOpen &&
-//         css`
-//             display: flex;
-//             position: fixed;
-//             align-items: center;
-//             flex-flow: column nowrap;
-//             top: 0;
-//         `}
-
-//     @media screen and (min-width: 968px) {
-//         position: relative;
-//         border-radius: ${({ theme }) => theme.borderRadius};
-//     }
-// `;
-
 Modal.Title = styled.h1`
     ${({ theme }) => css`
         color: ${theme.darkBlue};
@@ -82,42 +61,3 @@ Modal.Title = styled.h1`
         margin: 2rem 0;
     `}
 `;
-
-// Modal.Overlay = styled.div`
-//     display: none;
-//     ${({ isOpen }) =>
-//         isOpen &&
-//         css`
-//             display: flex;
-//             position: fixed;
-//             top: 0;
-//             height: 100%;
-//             width: 100%;
-//             background-color: ${({ theme }) => theme.darkBlue};
-//             opacity: 0.6;
-//         `}
-
-//     @media screen and (min-width: 968px) {
-//         left: 0;
-//     }
-// `;
-
-// Modal.Inner = styled.div``;
-
-// Modal.Form = styled.form`
-//     ${({ theme }) => css`
-//         z-index: 5;
-//         display: flex;
-//         flex-flow: column nowrap;
-//         background: ${theme.white};
-//         border-radius: ${theme.borderRadius};
-//         height: 100%;
-//         margin-top: 2rem;
-//         width: 80%;
-
-//         @media screen and (min-width: 968px) {
-//             width: 60%;
-//             padding: 0rem 2rem 4rem 2rem;
-//         }
-//     `}
-// `;

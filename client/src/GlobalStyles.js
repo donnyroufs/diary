@@ -77,4 +77,13 @@ export default createGlobalStyle`
     .todo-icon--danger {
         color: ${theme.red};
     }
+
+    textarea:focus, input:focus {
+        outline: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+        color: ${theme.opacityBlue};
+        font-weight: 500;
+    }
 `;

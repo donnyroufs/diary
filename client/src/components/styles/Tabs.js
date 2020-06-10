@@ -13,7 +13,7 @@ export const Tabs = styled.div`
 `;
 
 Tabs.Tab = styled.button`
-    background-color: ${({ theme, active }) => (active ? theme.blue : theme.white)};
+    background-color: ${({ theme, active }) => (active ? theme.secondaryBlue : theme.white)};
     color: ${({ theme, active }) => (active ? theme.white : theme.darkBlue)};
     border: 0;
     outline: none;

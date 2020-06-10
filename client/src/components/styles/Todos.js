@@ -21,7 +21,7 @@ Todos.Todo = styled.li`
     letter-spacing: 0.04em;
     font-weight: 500;
     cursor: pointer;
-    color: ${({ theme }) => theme.todoColour};
+    color: ${({ theme }) => theme.opacityBlue};
     transition: 0.15s ease-in-out all;
 
     /* @TODO: Proper styling */
@@ -37,10 +37,9 @@ Todos.Todo = styled.li`
 `;
 
 Todos.Header = styled.header`
-    color: ${({ theme }) => theme.black};
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
-    color: ${({ theme, active }) => (active ? theme.lightBlue : theme.blue)};
+    color: ${({ theme, active }) => (active ? theme.blue : theme.secondaryBlue)};
     font-weight: bold;
 `;
 
@@ -55,7 +54,7 @@ export const Description = styled.div`
     @media screen and (min-width: 968px) {
         margin-top: 0;
         border: ${({ theme }) => `1px solid ${theme.gray}`};
-        padding: 1rem;
+        padding: 1rem 1.5rem;
         border-radius: ${({ theme }) => theme.borderRadius};
     }
 `;
