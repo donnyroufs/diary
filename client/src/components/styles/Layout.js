@@ -7,13 +7,13 @@ export const Container = styled.section`
     width: 100%;
 
     @media screen and (min-width: 968px) {
-        margin-left: ${sidebarWidth + 200}px;
-        margin-right: 200px;
+        margin-left: ${sidebarWidth}px;
+        width: 50%;
     }
 
     @media screen and (min-width: 2150px) {
-        margin-left: ${sidebarWidth + 400}px;
-        margin-right: 400px;
+        margin-left: ${sidebarWidth}px;
+        width: 60%;
     }
 `;
 

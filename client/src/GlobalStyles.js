@@ -30,6 +30,7 @@ export default createGlobalStyle`
 
         @media screen and (min-width: 968px) {
             margin: 0;
+            justify-content: center;
         }
     }
 
