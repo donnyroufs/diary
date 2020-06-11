@@ -28,9 +28,9 @@ describe("[REDUX] Todos", () => {
             expect(newState).toEqual(initialState);
         });
 
-        it("Should set the loading state to false when SUCCESS_TODOS", () => {
+        it("Should set the loading state to false when SUCCESS_FETCH_TODOS", () => {
             const newState = todosReducer(undefined, {
-                type: types.SUCCESS_TODOS,
+                type: types.SUCCESS_FETCH_TODOS,
                 payload: {
                     ok: true,
                 },
@@ -39,9 +39,9 @@ describe("[REDUX] Todos", () => {
             expect(newState.loading).toBeFalsy();
         });
 
-        it("Should set the loading state to false when FAILED_TODOS", () => {
+        it("Should set the loading state to false when FAILED_FETCH_TODOS", () => {
             const newState = todosReducer(undefined, {
-                type: types.FAILED_TODOS,
+                type: types.FAILED_FETCH_TODOS,
                 payload: {
                     ok: false,
                 },

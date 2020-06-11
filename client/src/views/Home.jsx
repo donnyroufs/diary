@@ -24,7 +24,7 @@ const Home = ({ setSelected }) => {
                     {todos
                         .filter((todo) => !todo.completed)
                         .map((todo) => (
-                            <WidgetTodo {...todo} setSelected={setSelected} />
+                            <WidgetTodo {...todo} setSelected={setSelected} key={todo.id} />
                         ))}
                 </Widget>
                 <Widget title="Exercise" error={true} href="/exercise" size="big" />

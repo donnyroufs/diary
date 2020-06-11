@@ -75,7 +75,6 @@ const Todos = ({ selected, setSelected }) => {
         dispatch(fetchTodosByDate(current));
 
         if (didMountRef.current) {
-            console.log("init");
             setSelected("");
         } else {
             didMountRef.current = true;
