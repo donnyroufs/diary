@@ -20,8 +20,8 @@ const WidgetTodo = ({ setSelected, title, id, completed }) => {
     };
 
     return (
-        <Styled.Widget.Item key={id} onClick={handleSetSelected}>
-            <Styled.Widget.Span>{title}</Styled.Widget.Span>
+        <Styled.Widget.Item key={id}>
+            <Styled.Widget.Span onClick={handleSetSelected}>{title}</Styled.Widget.Span>
             <Utility.Button icon onClick={handleToggleComplete}>
                 <FcCheckmark className="todo-icon" />
             </Utility.Button>
