@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import Tabs from "../components/Tabs";
 import Tab from "../components/Tab";
@@ -11,17 +11,16 @@ import { RiDeleteBin4Line } from "react-icons/ri";
 import { FcCheckmark } from "react-icons/fc";
 import { Roller, Ellipsis } from "react-awesome-spinners";
 import useTabs from "../hooks/useTabs";
-// import Modal from "../components/Modal";
 import { useDispatch } from "react-redux";
 import { addTodo, deleteTodo, toggleTodoComplete, fetchTodosByDate, updateTodo } from "../store/actions/todos";
 import Modal from "../components/generic/Modal";
 import { grabIfExists } from "../utils/grabIfExists";
 
-const Todos = () => {
+const Todos = ({ selected, setSelected }) => {
     const dispatch = useDispatch();
+    const didMountRef = useRef(false);
     const [isOpen, setIsOpen] = useState(false);
     const [current, setCurrent] = useTabs("Today");
-    const [selected, setSelected] = useState("");
     const [edit, setEdit] = useState(false);
     const { todos, loading, error } = useSelector((state) => state.todos);
 
@@ -74,12 +73,17 @@ const Todos = () => {
 
     useEffect(() => {
         dispatch(fetchTodosByDate(current));
-        setSelected("");
+
+        if (didMountRef.current) {
+            console.log("init");
+            setSelected("");
+        } else {
+            didMountRef.current = true;
+        }
     }, [current]);
 
     return (
         <Wrapper>
-            {/* <Modal createTodo={createTodo} setIsOpen={setIsOpen} isOpen={isOpen} title="add new todo" /> */}
             {edit ? (
                 <Modal
                     action={editTodo}

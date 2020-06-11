@@ -6,7 +6,7 @@ import Habit from "../components/Habit";
 import * as Styled from "./styles/Home";
 import { fetchTodosByDate } from "../store/actions/todos";
 
-const Home = () => {
+const Home = ({ setSelected }) => {
     const dispatch = useDispatch();
     const { todos, error, loading } = useSelector((state) => state.todos);
 
@@ -18,7 +18,15 @@ const Home = () => {
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget title="Todos" loading={loading} error={error} link="more" href="/todos" items={todos} />
+                <Widget
+                    title="Todos"
+                    loading={loading}
+                    error={error}
+                    link="more"
+                    href="/todos"
+                    items={todos}
+                    setSelected={setSelected}
+                />
                 <Widget title="Exercise" error={true} link="more" href="/exercise" size="big" />
             </Styled.Widgets>
 

@@ -1,14 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
 import Layout from "./components/Layout";
 import * as View from "./views";
 
 const App = () => {
+    // Selecting todos
+    const [selected, setSelected] = useState("");
+
     return (
         <Layout>
             <Switch>
-                <Route exact path="/" component={View.Home} />
-                <Route path="/todos" component={View.Todos} />
+                <Route exact path="/" render={(props) => <View.Home {...props} setSelected={setSelected} />} />
+                <Route
+                    path="/todos"
+                    render={(props) => <View.Todos {...props} setSelected={setSelected} selected={selected} />}
+                />
             </Switch>
         </Layout>
     );

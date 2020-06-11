@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import WidgetTodo from "./WidgetTodo";
 import { Ellipsis } from "react-awesome-spinners";
 
-const Widget = ({ link, title, subTitle, items, href, size, error, loading }) => {
+const Widget = ({ setSelected, link, title, subTitle, items, href, size, error, loading }) => {
     const renderItems = () => {
         if (error) {
             return <Styled.Widget.Item danger>Something went wrong...</Styled.Widget.Item>;
@@ -16,7 +16,7 @@ const Widget = ({ link, title, subTitle, items, href, size, error, loading }) =>
         } else {
             return items
                 .filter(({ completed }) => !completed)
-                .map((todo) => <WidgetTodo {...todo} widgetTitle={title} key={todo.id} />);
+                .map((todo) => <WidgetTodo {...todo} widgetTitle={title} key={todo.id} setSelected={setSelected} />);
         }
     };
 

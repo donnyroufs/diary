@@ -40,12 +40,22 @@ Widget.Item = styled.li`
     padding: 1.1rem 0;
     border-bottom: ${({ theme, empty, danger }) => (empty || danger ? "none" : `1px solid ${theme.gray}`)};
     color: ${({ danger, theme }) => danger && theme.red};
+
     ${({ theme, info }) =>
         info &&
         css`
             color: ${theme.blue};
             border-bottom: none;
         `}
+`;
+
+Widget.Span = styled.span`
+    transition: 0.2s ease-in-out all;
+
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 `;
 
 Widget.Link = styled(Link)`
