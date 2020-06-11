@@ -2,6 +2,7 @@ import { todos as types } from "../constants";
 import { ToastsStore } from "react-toasts";
 
 export const ENDPOINT = "/api/todo";
+export const ENDPOINT_BYDATE = "/api/todo/date?date=1";
 
 export const fetchTodosRequest = () => ({
     type: types.FETCH_TODOS,

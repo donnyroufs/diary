@@ -2,7 +2,6 @@ import { todos as types } from "../constants";
 
 const initialState = {
     loading: true,
-    todos: [], // Not used, will be used later to view all the todos.
     todos: [],
     error: null,
 };
