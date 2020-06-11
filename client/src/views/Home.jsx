@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Banner from "../components/Banner";
-import Widget from "../components/Widget";
+// import Widget from "../components/Widget";
+import Widget from "../components/generic/Widget";
+import WidgetTodo from "../components/WidgetTodo";
 import Habit from "../components/Habit";
 import * as Styled from "./styles/Home";
 import { fetchTodosByDate } from "../store/actions/todos";
@@ -18,16 +20,14 @@ const Home = ({ setSelected }) => {
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget
-                    title="Todos"
-                    loading={loading}
-                    error={error}
-                    link="more"
-                    href="/todos"
-                    items={todos}
-                    setSelected={setSelected}
-                />
-                <Widget title="Exercise" error={true} link="more" href="/exercise" size="big" />
+                <Widget title="Todos" loading={loading} error={error} href="/todos">
+                    {todos
+                        .filter((todo) => !todo.completed)
+                        .map((todo) => (
+                            <WidgetTodo {...todo} setSelected={setSelected} />
+                        ))}
+                </Widget>
+                <Widget title="Exercise" error={true} href="/exercise" size="big" />
             </Styled.Widgets>
 
             <Styled.Habbits>

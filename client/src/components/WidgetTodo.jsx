@@ -6,7 +6,7 @@ import * as Styled from "./styles/Widget";
 import { FcCheckmark } from "react-icons/fc";
 import { toggleTodoComplete } from "../store/actions/todos";
 
-const WidgetTodo = ({ setSelected, widgetTitle, title: todoTitle, id, completed }) => {
+const WidgetTodo = ({ setSelected, title, id, completed }) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
@@ -21,12 +21,10 @@ const WidgetTodo = ({ setSelected, widgetTitle, title: todoTitle, id, completed 
 
     return (
         <Styled.Widget.Item key={id} onClick={handleSetSelected}>
-            <Styled.Widget.Span>{todoTitle}</Styled.Widget.Span>
-            {widgetTitle === "Todos" && (
-                <Utility.Button icon onClick={handleToggleComplete}>
-                    <FcCheckmark className="todo-icon" />
-                </Utility.Button>
-            )}
+            <Styled.Widget.Span>{title}</Styled.Widget.Span>
+            <Utility.Button icon onClick={handleToggleComplete}>
+                <FcCheckmark className="todo-icon" />
+            </Utility.Button>
         </Styled.Widget.Item>
     );
 };
