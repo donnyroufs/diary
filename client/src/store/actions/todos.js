@@ -1,4 +1,5 @@
 import { todos as types } from "../constants";
+import { ToastsStore } from "react-toasts";
 
 export const ENDPOINT = "/api/todo";
 
@@ -84,7 +85,15 @@ export const addTodo = (_payload) => async (dispatch) => {
         },
     })
         .then((res) => res.json())
-        .then((data) => (data.ok ? dispatch(addTodosSuccess(data)) : dispatch(addTodosFailed(data))))
+        .then((data) => {
+            if (!data.ok) {
+                dispatch(addTodosFailed(data));
+                ToastsStore.error("Couldn't add todo");
+            } else {
+                dispatch(addTodosSuccess(data));
+                ToastsStore.success("Added todo");
+            }
+        })
         .catch((err) =>
             dispatch(
                 addTodosFailed({
@@ -116,8 +125,14 @@ export const toggleTodoComplete = ({ id, completed }) => (dispatch) => {
         method: "PUT",
     })
         .then((res) => res.json())
-        .then((data) => dispatch(successToggleTodoComplete({ data: id })))
-        .catch((err) => dispatch(failedToggleTodoComplete(err.message)));
+        .then((data) => {
+            dispatch(successToggleTodoComplete({ data: id }));
+            ToastsStore.success(`Todo is now set to: ${toggleCompleted}.`);
+        })
+        .catch((err) => {
+            dispatch(failedToggleTodoComplete(err.message));
+            ToastsStore.error("Couldn't toggle complete");
+        });
 };
 
 export const deleteTodoRequest = () => ({
@@ -140,8 +155,14 @@ export const deleteTodo = (id) => async (dispatch) => {
         method: "DELETE",
     })
         .then((res) => res.json())
-        .then((_) => dispatch(successDeleteTodo({ data: id })))
-        .catch((err) => dispatch(failedDeleteTodo(err.message)));
+        .then((_) => {
+            dispatch(successDeleteTodo({ data: id }));
+            ToastsStore.success("Successfuly deleted todo");
+        })
+        .catch((err) => {
+            dispatch(failedDeleteTodo(err.message));
+            ToastsStore.error("Failed removing todo.");
+        });
 };
 
 export const updateTodoRequest = () => ({
@@ -164,6 +185,12 @@ export const updateTodo = ({ id, title, description }) => (dispatch) => {
         method: "PUT",
     })
         .then((res) => res.json())
-        .then((data) => dispatch(successUpdateTodoRequest(data)))
-        .catch((err) => dispatch(failedUpdateTodoRequest(err.message)));
+        .then((data) => {
+            dispatch(successUpdateTodoRequest(data));
+            ToastsStore.success("Successfuly updated todo.");
+        })
+        .catch((err) => {
+            dispatch(failedUpdateTodoRequest(err.message));
+            ToastsStore.error("Couldn't update todo.");
+        });
 };

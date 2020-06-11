@@ -77,6 +77,9 @@ export default createGlobalStyle`
     .todo-icon--danger {
         color: ${theme.red};
     }
+    .toast {
+        padding: 2rem;
+    }
 
     textarea:focus, input:focus {
         outline: none;

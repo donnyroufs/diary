@@ -18,12 +18,13 @@ const Modal = ({ createTodo, title, isOpen, setIsOpen }) => {
         e.preventDefault();
         setIsOpen(false);
         createTodo(values);
+        setValues({ title: "", description: "" });
     };
 
     const handleCloseModal = (e) => {
-        console.log("close me");
         e.preventDefault();
         setIsOpen(false);
+        setValues({ title: "", description: "" });
     };
 
     const handleOnChange = (e) =>
@@ -31,8 +32,6 @@ const Modal = ({ createTodo, title, isOpen, setIsOpen }) => {
             ...values,
             [e.target.name]: e.target.value,
         });
-
-    useEffect(() => setValues({ title: "", description: "" }), [isOpen]);
 
     return (
         <React.Fragment>

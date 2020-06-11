@@ -8,7 +8,6 @@ import { useLocation } from "react-router-dom";
 const Header = ({ setOpen }) => {
     const location = useLocation();
 
-    console.log(location);
     const toggleSidebar = (e) => setOpen((oldValue) => !oldValue);
 
     return (

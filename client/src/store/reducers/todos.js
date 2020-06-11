@@ -13,13 +13,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
+                error: null,
             };
         case types.SUCCESS_FETCH_TODOS:
             return {
                 ...state,
                 loading: false,
                 todos: action.payload.data,
-                error: null,
             };
         case types.FAILED_FETCH_TODOS:
             return {
@@ -32,13 +32,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: true,
+                error: null,
             };
         case types.SUCCESS_FETCH_TODOS_BYDATE:
             return {
                 ...state,
                 loading: false,
                 todos: action.payload.data,
-                error: null,
             };
         case types.FAILED_FETCH_TODOS_BYDATE:
             return {
@@ -58,14 +58,12 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: false,
                 todos: [...state.todos, action.payload.data],
-                error: null,
             };
 
         case types.FAILED_ADD_TODO:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.data,
             };
         case types.DELETE_TODO:
             return {
@@ -77,20 +75,17 @@ export default (state = initialState, action) => {
                 ...state,
                 loading: false,
                 todos: state.todos.filter((todo) => todo.id !== action.payload.data),
-                error: null,
             };
         case types.FAILED_DELETE_TODO:
             return {
                 ...state,
                 loading: false,
-                error: action.payload.data,
             };
 
         case types.TOGGLE_TODO:
             return {
                 ...state,
                 loading: true,
-                error: null,
             };
 
         case types.SUCCESS_TOGGLE_TODO:
@@ -106,14 +101,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.payload.data,
             };
 
         case types.UPDATE_TODO:
             return {
                 ...state,
                 loading: true,
-                error: null,
             };
 
         case types.SUCCESS_UPDATE_TODO:
@@ -129,7 +122,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                error: action.payload.data,
             };
 
         default:

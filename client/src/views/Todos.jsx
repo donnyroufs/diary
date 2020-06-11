@@ -123,7 +123,6 @@ const Todos = () => {
                                 </Utility.Message>
                             )}
                             {todos.length > 0 &&
-                                todos.length > 0 &&
                                 sortByCompleted().map((todo) => (
                                     <Todo key={todo.id} {...todo} setSelected={setSelected} selected={selected} />
                                 ))}

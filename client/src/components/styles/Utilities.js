@@ -16,6 +16,13 @@ export const Button = styled.button`
     width: 100%;
     border-radius: 7px;
     cursor: pointer;
+    transition: 0.2s ease-in-out background-color;
+
+    &:hover {
+        ${({ theme }) => css`
+            background: ${theme.secondaryBlue};
+        `};
+    }
 
     ${({ secondary }) =>
         secondary &&
