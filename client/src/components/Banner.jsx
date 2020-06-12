@@ -21,8 +21,17 @@ const Banner = () => {
             <Styled.Banner.Wrapper>
                 <Styled.Banner.Title>Welcome back Donny!</Styled.Banner.Title>
                 <Styled.Banner.Paragraph>
-                    You have completed <Highlight>{percentageDone()}%</Highlight> of your todos today!
-                    <br /> Keep it up and get the last ones done!
+                    {todos.length > 0 ? (
+                        <React.Fragment>
+                            You have completed <Highlight>{percentageDone()}%</Highlight> of your todos today!
+                            <br /> Keep it up and get the last ones done!
+                        </React.Fragment>
+                    ) : (
+                        <React.Fragment>
+                            Looks like you have no todos for today! <br />
+                            Perhaps you can think of something?
+                        </React.Fragment>
+                    )}
                 </Styled.Banner.Paragraph>
             </Styled.Banner.Wrapper>
         </Styled.Banner>
