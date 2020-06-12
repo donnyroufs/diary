@@ -20,7 +20,14 @@ const Home = ({ setSelected }) => {
         <React.Fragment>
             <Banner />
             <Styled.Widgets>
-                <Widget title="Todos" loading={loading} error={error} href="/todos">
+                <Widget
+                    title="Todos"
+                    loading={loading}
+                    error={error}
+                    href="/todos"
+                    count={todos.length}
+                    message="You have no todos for today!"
+                >
                     {todos
                         .filter((todo) => !todo.completed)
                         .map((todo) => (
