@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        todos: action.payload.data.ok ? action.payload.data : [],
+        todos: action.payload.data,
         error: null,
       };
     case types.FAILED_FETCH_TODOS_BYDATE:
