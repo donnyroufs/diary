@@ -11,4 +11,16 @@ export const validateConnection = async () => {
   }
 };
 
+export const createUser = async () => {
+  try {
+    await client.user.create({
+      data: {
+        name: "Donny",
+      },
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
 export default client;

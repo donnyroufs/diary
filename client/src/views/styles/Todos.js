@@ -1,45 +1,45 @@
 import styled, { css } from "styled-components";
 
 export const Header = styled.header`
-    display: flex;
-    margin: 2rem;
+  display: flex;
+  margin: 2rem;
 
-    @media screen and (min-width: 968px) {
-        margin: 0 0 2rem 0;
-    }
+  @media screen and (min-width: 968px) {
+    margin: 0 0 2rem 0;
+  }
 `;
 
 export const Container = styled.section`
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 0 2rem;
-    height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 2rem;
+  height: 100%;
 
-    @media screen and (min-width: 968px) {
-        margin: 0 0 4rem 0;
-        flex-flow: row nowrap;
-    }
+  @media screen and (min-width: 968px) {
+    margin: 0 0 4rem 0;
+    flex-flow: row nowrap;
+  }
 `;
 
 export const Wrapper = styled.div`
-    display: flex;
-    flex-flow: column wrap;
+  display: flex;
+  flex-flow: column nowrap;
 `;
 
 export const Column = styled.div`
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
 
-    ${({ isLoading }) =>
-        isLoading &&
-        css`
-            justify-content: center;
-            align-items: center;
-            height: 250px;
-        `}
-    @media screen and (min-width: 968px) {
-        max-width: 380px;
-        margin-right: 4rem;
-    }
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+    `}
+  @media screen and (min-width: 968px) {
+    max-width: 380px;
+    margin-right: 4rem;
+  }
 `;

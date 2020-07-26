@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import apiRoutes from "./api/routes/index";
 import { validateConnection } from "./db";
+
 import "./utils/datePrototypes";
 
 const app = express();

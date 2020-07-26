@@ -9,44 +9,45 @@ import * as Styled from "./styles/Home";
 import { fetchTodosByDate } from "../store/actions/todos";
 
 const Home = ({ setSelected }) => {
-    const dispatch = useDispatch();
-    const { todos, error, loading } = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+  const { todos, error, loading } = useSelector((state) => state.todos);
 
-    useEffect(() => {
-        dispatch(fetchTodosByDate("Today"));
-    }, []);
+  useEffect(() => {
+    dispatch(fetchTodosByDate("Today"));
+  }, []);
 
-    return (
-        <React.Fragment>
-            <Banner />
-            <Styled.Widgets>
-                <Widget
-                    title="Todos"
-                    loading={loading}
-                    error={error}
-                    href="/todos"
-                    count={todos.length}
-                    message="You have no todos for today!"
-                >
-                    {todos
-                        .filter((todo) => !todo.completed)
-                        .map((todo) => (
-                            <WidgetTodo {...todo} setSelected={setSelected} key={todo.id} />
-                        ))}
-                </Widget>
-                <Widget title="Exercise" error={true} href="/exercise" size="big" />
-            </Styled.Widgets>
+  return (
+    <React.Fragment>
+      <Banner />
+      <Styled.Widgets>
+        <Widget
+          title="Todos"
+          loading={loading}
+          error={error}
+          href="/todos"
+          count={todos.length}
+          message="You have no todos for today!"
+        >
+          {todos &&
+            todos
+              .filter((todo) => !todo.completed)
+              .map((todo) => (
+                <WidgetTodo {...todo} setSelected={setSelected} key={todo.id} />
+              ))}
+        </Widget>
+        <Widget title="Exercise" error={true} href="/exercise" size="big" />
+      </Styled.Widgets>
 
-            <Styled.Habbits>
-                <Styled.Title>Habits</Styled.Title>
-                <Styled.Wrapper>
-                    <Habit />
-                    <Habit />
-                    <Habit />
-                </Styled.Wrapper>
-            </Styled.Habbits>
-        </React.Fragment>
-    );
+      <Styled.Habbits>
+        <Styled.Title>Habits</Styled.Title>
+        <Styled.Wrapper>
+          <Habit />
+          <Habit />
+          <Habit />
+        </Styled.Wrapper>
+      </Styled.Habbits>
+    </React.Fragment>
+  );
 };
 
 export default Home;
